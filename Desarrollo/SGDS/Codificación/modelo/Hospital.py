@@ -1,14 +1,8 @@
 import random
 import string
-import sqlite3 as sql
-import json
-import os
-from datetime import date, timedelta
-from Credencial import insertar_credencial
-
 
 class Hospital:
-    def __init__(self, nombreDeHospital, direccion, telefono, estado, condiciones, beneficios, horarios):
+    def __init__(self, nombreDeHospital, direccion, telefono, estado, condiciones, beneficios, horarios, credencial):
         self.__idHospital = self.generar_id_aleatorio()
         self.__nombreDeHospital = nombreDeHospital
         self.__direccion = direccion
@@ -17,11 +11,86 @@ class Hospital:
         self.__condiciones = condiciones
         self.__beneficios = beneficios
         self.__horarios = horarios
+        self.__credencial = credencial
 
+    # Getter para el atributo idHospital
+    def get_idHospital(self):
+        return self.__idHospital
+
+    # Setter para el atributo idHospital
+    def set_idHospital(self, idHospital):
+        self.__idHospital = idHospital
+
+    # Getter para el atributo nombreDeHospital
+    def get_nombreDeHospital(self):
+        return self.__nombreDeHospital
+
+    # Setter para el atributo nombreDeHospital
+    def set_nombreDeHospital(self, nombreDeHospital):
+        self.__nombreDeHospital = nombreDeHospital
+
+    # Getter para el atributo direccion
+    def get_direccion(self):
+        return self.__direccion
+
+    # Setter para el atributo direccion
+    def set_direccion(self, direccion):
+        self.__direccion = direccion
+
+    # Getter para el atributo telefono
+    def get_telefono(self):
+        return self.__telefono
+
+    # Setter para el atributo telefono
+    def set_telefono(self, telefono):
+        self.__telefono = telefono
+
+    # Getter para el atributo estado
+    def get_estado(self):
+        return self.__estado
+
+    # Setter para el atributo estado
+    def set_estado(self, estado):
+        self.__estado = estado
+
+    # Getter para el atributo condiciones
+    def get_condiciones(self):
+        return self.__condiciones
+
+    # Setter para el atributo condiciones
+    def set_condiciones(self, condiciones):
+        self.__condiciones = condiciones
+
+    # Getter para el atributo beneficios
+    def get_beneficios(self):
+        return self.__beneficios
+
+    # Setter para el atributo beneficios
+    def set_beneficios(self, beneficios):
+        self.__beneficios = beneficios
+
+    # Getter para el atributo horarios
+    def get_horarios(self):
+        return self.__horarios
+
+    # Setter para el atributo horarios
+    def set_horarios(self, horarios):
+        self.__horarios = horarios
+
+    # Getter para el atributo credencial
+    def get_credencial(self):
+        return self.__credencial
+
+    # Setter para el atributo credencial
+    def set_credencial(self, credencial):
+        self.__credencial = credencial
+    
     @staticmethod
     def generar_id_aleatorio():
         return ''.join(random.choices(string.ascii_uppercase + string.digits, k=7))
-
+    
+    
+    """
     @staticmethod
     def obtener_datos_hospital_por_consola():
         nombreDeHospital = input("Nombre del hospital: ")
@@ -53,7 +122,9 @@ class Hospital:
             horarios.append({"idHorario": idHorario, "descripcion": descripcion, "hora": hora})
 
         return nombreDeHospital, direccion, telefono, estado, condiciones, beneficios, horarios
-
+    
+    
+   
     def agregarHospitalBD(self):
         # Obtener la ruta absoluta del directorio actual
         current_dir = os.path.abspath("")
@@ -116,6 +187,8 @@ class Hospital:
                 print("La licencia es invalida.")
 
 """
+
+"""
 datos_licencias = {
     "licencias_vigentes": [
         "123456",
@@ -125,11 +198,3 @@ datos_licencias = {
     ]
 }
 """
-def mainR1():
-    Hospital.registrarHospital()
-
-if __name__=="__main__":
-    mainR1()
-
-
-

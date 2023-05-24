@@ -1,3 +1,4 @@
+""""
 from datetime import datetime, date, time
 
 class Donante:
@@ -94,18 +95,19 @@ for cita in Cita.citas:
     print(cita.idCita, cita.fecha, cita.donante.nombre, cita.hospital.nombreDeHospital)
 
 # Confirmar cita
-if Cita.citas:
-    cita = Cita.citas[0]
-    cita.confirmarCita()
-else:
-    print("No hay citas programadas.")
+#if Cita.citas:
+  #  cita = Cita.citas[0]
+ #   cita.confirmarCita()
+#else:
+   # print("No hay citas programadas.")
 
 # Finalizar cita (simulación)
 if Cita.citas:
     cita = Cita.citas[0]
     cita.finalizarCita()
 
-# Reprogramar cita
+#Reprogramar cita
 if Cita.citas:
     cita = Cita.citas[0]
     cita.reprogramarCita(date(2023, 7, 15))
+"""

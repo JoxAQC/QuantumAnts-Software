@@ -1,9 +1,6 @@
-from Hospital import Hospital
-from Donante import Donante
-
 class Sistema:
     def __init__(self, estado):
-        self.__idDonante = estado
-
-
-    
+        self.__estado = estado
+        
+    def get_estado(self):
+        return self.__estado
