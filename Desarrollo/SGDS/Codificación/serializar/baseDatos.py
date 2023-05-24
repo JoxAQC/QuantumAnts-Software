@@ -194,3 +194,4 @@ if __name__ == "__main__":
     #insertRowDonante(1235,"Jennie Kim","16-01-1996","0000","911","Corea","O+","J","23-05-2023",1234)
     #insertRowCita(1,"23-05-2023",1235,1234,1)
     #print("BD Existente")
+    pass
