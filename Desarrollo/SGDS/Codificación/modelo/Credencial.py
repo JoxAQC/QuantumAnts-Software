@@ -1,65 +1,61 @@
 class Credencial:
-    def __init__(self, idCredencial, fechaDeCreacionCredencial, fechaDeExpiracion, estadoCredencial, tipoDeUsuarioCredencial, usernameCredencial, passwordCredencial):
+    def __init__(self, idCredencial, fechaDeCreacion, fechaDeExpiracion, 
+                estado, tipoDeUsuario, username, 
+                 password):
         self.__idCredencial = idCredencial
-        self.__fechaDeCreacionCredencial = fechaDeCreacionCredencial
-        self.__fechaDeExpiracion = fechaDeExpiracion
-        self.__estadoCredencial = estadoCredencial
-        self.__tipoDeUsuarioCredencial = tipoDeUsuarioCredencial
-        self.__usernameCredencial = usernameCredencial
-        self.__passwordCredencial = passwordCredencial
-    
-    # Getter para el atributo idCredencial
+        self.__fechaDeCreacion =fechaDeCreacion
+        self.__fechaDeExpiracion =fechaDeExpiracion
+        self.__estado =estado
+        self.__tipoDeUsuario =tipoDeUsuario
+        self.__username =username
+        self.__password = password
+
+        # Getter y Setter para idCredencial
     def get_idCredencial(self):
         return self.__idCredencial
-    
-    # Setter para el atributo idCredencial
+
     def set_idCredencial(self, idCredencial):
         self.__idCredencial = idCredencial
-    
-    # Getter para el atributo fechaDeCreacionCredencial
-    def get_fechaDeCreacionCredencial(self):
-        return self.__fechaDeCreacionCredencial
-    
-    # Setter para el atributo fechaDeCreacionCredencial
-    def set_fechaDeCreacionCredencial(self, fechaDeCreacionCredencial):
-        self.__fechaDeCreacionCredencial = fechaDeCreacionCredencial
-    
-    # Getter para el atributo fechaDeExpiracion
+
+    # Getter y Setter para fechaDeCreacion
+    def get_fechaDeCreacion(self):
+        return self.__fechaDeCreacion
+
+    def set_fechaDeCreacion(self, fechaDeCreacion):
+        self.__fechaDeCreacion = fechaDeCreacion
+
+    # Getter y Setter para fechaDeExpiracion
     def get_fechaDeExpiracion(self):
         return self.__fechaDeExpiracion
-    
-    # Setter para el atributo fechaDeExpiracion
+
     def set_fechaDeExpiracion(self, fechaDeExpiracion):
         self.__fechaDeExpiracion = fechaDeExpiracion
-    
-    # Getter para el atributo estadoCredencial
-    def get_estadoCredencial(self):
-        return self.__estadoCredencial
-    
-    # Setter para el atributo estadoCredencial
-    def set_estadoCredencial(self, estadoCredencial):
-        self.__estadoCredencial = estadoCredencial
-    
-    # Getter para el atributo tipoDeUsuarioCredencial
-    def get_tipoDeUsuarioCredencial(self):
-        return self.__tipoDeUsuarioCredencial
-    
-    # Setter para el atributo tipoDeUsuarioCredencial
-    def set_tipoDeUsuarioCredencial(self, tipoDeUsuarioCredencial):
-        self.__tipoDeUsuarioCredencial = tipoDeUsuarioCredencial
-    
-    # Getter para el atributo usernameCredencial
-    def get_usernameCredencial(self):
-        return self.__usernameCredencial
-    
-    # Setter para el atributo usernameCredencial
-    def set_usernameCredencial(self, usernameCredencial):
-        self.__usernameCredencial = usernameCredencial
-    
-    # Getter para el atributo passwordCredencial
-    def get_passwordCredencial(self):
-        return self.__passwordCredencial
-    
-    # Setter para el atributo passwordCredencial
-    def set_passwordCredencial(self, passwordCredencial):
-        self.__passwordCredencial = passwordCredencial
+
+    # Getter y Setter para estado
+    def get_estado(self):
+        return self.__estado
+
+    def set_estado(self, estado):
+        self.__estado = estado
+
+    # Getter y Setter para tipoDeUsuario
+    def get_tipoDeUsuario(self):
+        return self.__tipoDeUsuario
+
+    def set_tipoDeUsuario(self, tipoDeUsuario):
+        self.__tipoDeUsuario = tipoDeUsuario
+
+    # Getter y Setter para username
+    def get_username(self):
+        return self.__username
+
+    def set_username(self, username):
+        self.__username = username
+
+    # Getter y Setter para password
+    def get_password(self):
+        return self.__password
+
+    def set_password(self, password):
+        self.__password = password
+
