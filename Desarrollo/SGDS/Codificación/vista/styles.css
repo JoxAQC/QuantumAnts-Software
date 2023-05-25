@@ -575,6 +575,10 @@ html {
 
 }
 
+.swiper-horizontal {
+    padding-top: 2rem;
+}
+
 .review .slide .fa-quote-right{
     position: absolute;
     top:2rem; right:2rem;
@@ -852,7 +856,7 @@ html {
 	}
 
 	.card-category {
-		height: 12rem;
+		height: 20rem;
 	}
 
 	.card-category p {
@@ -878,6 +882,10 @@ html {
 		grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
 	}
 
+	.top-categories {
+		width: 40rem;
+	}
+
 	.gallery {
 		grid-template-rows: repeat(2, 15rem);
 	}
@@ -889,6 +897,12 @@ html {
 		height: 52rem;
 	}
 
+	.container-categories {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+
 	.menu-footer {
 		grid-template-columns: repeat(2, 1fr);
 	}
@@ -898,6 +912,14 @@ html {
 		justify-content: center;
 		align-items: center;
 		gap: 1.5rem;
+	}
+
+	.review{
+		padding:0 2rem;
+	}
+
+	.newsletter {
+		text-align: center;
 	}
 }
 
