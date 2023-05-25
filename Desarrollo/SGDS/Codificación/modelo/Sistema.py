@@ -6,6 +6,7 @@ from Horarios import Horarios
 import sqlite3 as sql
 import os
 import json
+import random
 
 class Sistema:
     def __init__(self, estado):
@@ -73,6 +74,10 @@ class Sistema:
             else:
                 print("La licencia es inválida.")
 
+    def generar_id_credencial():
+        # Genera un número entero aleatorio de 7 dígitos
+        id_credencial = random.randint(1000000, 9999999)
+        return id_credencial
 
 def mainR1():
          
@@ -87,23 +92,24 @@ def mainR1():
     # Escribir datos en el archivo JSON
     #with open("LicenciasVigentesFuncionamiento.json", "w") as archivo:
     #    json.dump(datos_licencias, archivo)
-    
-    credencial = Credencial(1, "12/02/2024","12/02/2025", "Activo", "Donante", 
+
+    idHospitalyCredencial = Sistema.generar_id_credencial()
+    credencial = Credencial(idHospitalyCredencial, "12/02/2024","12/02/2025", "Activo", "Donante", 
                 "RogelioElCrag", "1234")
     horariolista = list()
-    horario1 = Horarios(1, "Horario 1", "08:00",1)
-    horario2 = Horarios(2, "Horario 2", "12:00",1)
-    horario3 = Horarios(3, "Horario 3", "16:00",1)
+    horario1 = Horarios(1, "Horario 1", "08:00",idHospitalyCredencial)
+    horario2 = Horarios(2, "Horario 2", "12:00",idHospitalyCredencial)
+    horario3 = Horarios(3, "Horario 3", "16:00",idHospitalyCredencial)
     horariolista.append(horario1)
     horariolista.append(horario2)
     horariolista.append(horario3)
     condicionesLista = list()
-    condicion1 = Condiciones(1,"nose",1)
+    condicion1 = Condiciones(1,"nose",idHospitalyCredencial)
     condicionesLista.append(condicion1)
     beneficiosLista = list()
-    beneficio1 = Beneficios(1,"nose",1,1,1)
+    beneficio1 = Beneficios(1,"nose",idHospitalyCredencial,1,1)
     beneficiosLista.append(beneficio1)
-    hospital = Hospital(1,"Maria Auxiliadora", "Las Perlas #524", "987654321", 
+    hospital = Hospital(idHospitalyCredencial,"Maria Auxiliadora", "Las Perlas #524", "987654321", 
                     "Activo", condicionesLista,beneficiosLista, horariolista, credencial)
     numeroLicencia="123456"
     Sistema.registrarHospital(hospital,credencial,numeroLicencia)
