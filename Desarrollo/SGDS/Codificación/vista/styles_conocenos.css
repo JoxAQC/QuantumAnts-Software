@@ -206,8 +206,7 @@ html {
 /* Estilos de la seccion 1 */
 /* *********************** */
 .section1 {
-  background-color: #666;
-  color: #fff;
+  background-color: #f2f2f2;
   padding: 30px;
   display: flex;
   align-items: flex-start;
@@ -215,54 +214,58 @@ html {
 
 .contenido {
   text-align: left;
-  margin-right: 20px;
 }
 
 .contenido h1 {
   font-size: 36px;
   margin-bottom: 10px;
+  margin-left: 50px;
 }
 
 .contenido p {
   font-size: 18px;
   margin-bottom: 20px;
+  margin-left: 50px;
 }
 
 .section1 img {
-  width: 600px;
+  width: 500px;
   height: auto;
   margin-left: auto;
+  margin-right: 50px;
 }
 
 /* ********************** */
 /* Estilos de la seccion2 */
 /* ********************** */
 .seccion2 {
-  background-color: #f2f2f2;
+  background-color: #666;
+  color: #fff;
   padding: 30px;
   display: flex;
   align-items: flex-start;
+  margin-bottom:0px;
 }
 
 .seccion2 img{
   width: 400px;
   height: auto;
-  margin-right:auto;
+  margin-left:50px;
 }
 
 .contenido2 {
   text-align: right;
-  margin-left: 20px;
+  margin-right: 50px;
 }
 
 .contenido2 h2{
   font-size: 36px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .contenido2 p{
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 
@@ -270,16 +273,17 @@ html {
 /* Estilos de la seccion2.1 */
 /* ************************ */
 .seccion2m {
-  background-color: #f2f2f2;
+  background-color: #666;
+  color: #fff;
   padding: 30px;
   display: flex;
   align-items: flex-start;
 }
 
 .seccion2m img{
-  width: 400px;
+  width: 300px;
   height: auto;
-  margin-left: auto;
+  margin-right: 50px;
 }
 
 .contenido2m {
@@ -291,6 +295,8 @@ html {
 .contenido2m p{
   font-size: 18px;
   margin-bottom: 20px;
+  margin-left: 50px;
+  margin-right: 10px;
 }
 
 
@@ -298,15 +304,14 @@ html {
 /* Estilos de la seccion 3 */
 /* *********************** */
 .seccion3 {
-  background-color: #666;
-  color: #fff;
+  background-color: #f2f2f2;
   padding: 30px;
   display: flex;
   align-items: flex-start;
 }
 
 .imagen3 {
-  margin-left: 20px;
+  margin-left: 50px;
   flex-grow: 1;
 }
 
@@ -328,6 +333,7 @@ html {
   font-size: 18px;
   margin-bottom: 20px;
   margin-top: 60px;
+  margin-right: 50px;
 }
 
 
@@ -368,6 +374,7 @@ html {
 }
 
 .title-footer {
+	color: white;
 	font-weight: 600;
 	font-size: 1.6rem;
 	text-transform: uppercase;
@@ -380,7 +387,6 @@ html {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
-	color: white;
 }
 
 .contact-info ul,

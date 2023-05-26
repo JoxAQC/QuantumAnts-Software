@@ -211,7 +211,7 @@ html {
 /* Estilos de la seccion 1 */
 /* *********************** */
 .section1 {
-  background-color: #f2f2f2;
+  background-color: var(--background-color);
   padding: 30px;
   text-align: center;
   color: #000000;
@@ -302,12 +302,16 @@ input[type="date"] {
 }
 
 .boton2 {
-  padding: 10px 20px;
-  background-color: #666;
-  color: #fff;
-  border: 2px solid #000;
-  border-radius: 4px;
-  cursor: pointer;
+	border: none;
+	background-color: #000;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 1rem 3rem;
+	border-radius: 2rem;
+	font-size: 1.4rem;
+	font-family: inherit;
+	cursor: pointer;
+	font-weight: 600;
 }
 
 
@@ -316,7 +320,7 @@ input[type="date"] {
 /* ************************ */
 .section3 {
   text-align: center;
-  background-color: #f2f2f2; /* Fondo gris claro */
+  background-color: var(--background-color);
   padding: 30px;
   margin-bottom: 100px;
 }
@@ -333,16 +337,16 @@ input[type="date"] {
 }
 
 .cuadro3 {
-  flex-basis: calc(33.33% - 20px);
+  flex-basis: calc(33.33% - 50px);
   border: 1px solid black; /* Borde negro */
-  background-color: #ccc; /* Color de fondo para diferenciar */
+  background-color: #FFF; /* Color de fondo para diferenciar */
   padding: 20px;
-  border-radius: 4px;
+  border-radius: 50px;
 }
 
 .imagen3 {
-  width: 200px;
-  height: auto;
+  width: auto;
+  height: 200px;
   border-radius: 4px;
 }
 
@@ -352,13 +356,17 @@ input[type="date"] {
 }
 
 .boton3 {
-  padding: 10px 20px;
-  background-color: #666;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 15px;
+	border: none;
+	background-color: #000;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 1rem 3rem;
+	border-radius: 2rem;
+	font-size: 1.4rem;
+	font-family: inherit;
+	cursor: pointer;
+	font-weight: 600;
+	margin-top:20px;
 }
 
 
@@ -366,7 +374,6 @@ input[type="date"] {
 /* ********************************** */
 /*               FOOTER               */
 /* ********************************** */
-
 .footer {
 	background-color: var(--primary-color);
 }
@@ -400,6 +407,7 @@ input[type="date"] {
 }
 
 .title-footer {
+	color: white;
 	font-weight: 600;
 	font-size: 1.6rem;
 	text-transform: uppercase;
@@ -412,7 +420,6 @@ input[type="date"] {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
-	color: white;
 }
 
 .contact-info ul,
@@ -547,6 +554,7 @@ input[type="date"] {
 	font-weight: 400;
 	font-size: 1.6rem;
 }
+
 
 /* ********************************** */
 /*       MEDIA QUERIES -- 768px       */
