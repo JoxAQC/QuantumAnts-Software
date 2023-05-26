@@ -360,6 +360,12 @@ html {
 		align-items: center;
 		gap: 1.5rem;
 	}
+
+	.info-container,
+	.info-container-shadow{
+		padding: 2rem;
+	}
+
 }
 
 /* ********************************** */
@@ -422,7 +428,7 @@ html {
 	}
 
 	.blogs {
-		padding: 2rem;
+		padding: 2rem 0;
 	}
 
 	.container-blogs {
