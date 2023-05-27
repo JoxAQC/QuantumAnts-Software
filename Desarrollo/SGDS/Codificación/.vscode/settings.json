@@ -2,5 +2,9 @@
     "python.analysis.extraPaths": [
         "./modelo",
         "./modelo"
-    ]
+    ],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.formatting.provider": "none"
 }
