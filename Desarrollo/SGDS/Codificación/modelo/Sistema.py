@@ -192,6 +192,7 @@ class Sistema:
             conn.close()
             return False  # Error al finalizar la cita    
 
+
 def mainR1():
          
     #datos_licencias = {
@@ -229,3 +230,4 @@ def mainR1():
  
 if __name__=="__main__":
    mainR1()
+
