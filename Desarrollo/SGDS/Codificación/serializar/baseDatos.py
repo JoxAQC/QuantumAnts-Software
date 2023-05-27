@@ -64,10 +64,10 @@ def insertRowCredencial(idCredencial,fechaDeCreacion,fechaDeExpiracion,estado,ti
     conn.close()
 
 
-def insertRowDonante(idDonante,nombre,fechaNacimiento,dni,telefono,direccion,grupoSanguineo,RH,ultimaDonacion,idHospitalUltimo):
+def insertRowDonante(idDonante,nombre,fechaNacimiento,dni,telefono,direccion,beneficioActivo,grupoSanguineo,RH,ultimaDonacion,idHospitalUltimo):
     conn = sql.connect("SGDS-VABD01.db")
     cursor = conn.cursor()
-    instruction = f"INSERT INTO Donante VALUES ({idDonante},'{nombre}','{fechaNacimiento}','{dni}','{telefono}','{direccion}','{grupoSanguineo}','{RH}','{ultimaDonacion}',{idHospitalUltimo})"
+    instruction = f"INSERT INTO Donante VALUES ({idDonante},'{nombre}','{fechaNacimiento}','{dni}','{telefono}','{direccion}','{beneficioActivo}','{grupoSanguineo}','{RH}','{ultimaDonacion}',{idHospitalUltimo})"
     cursor.execute(instruction)
     conn.commit()
     conn.close()
@@ -152,11 +152,23 @@ def createTableDonante():
          dni text,
          telefono text,
          direccion text,
+         beneficioActivo text,
          grupoSanguineo text,
          RH text,
          ultimaDonacion text,
          idHospitalUltimo integer
         )"""   
+    )
+    conn.commit()
+    conn.close()
+
+def dropTableDonante():
+    conn=sql.connect("SGDS-VABD01.db")
+    cursor = conn.cursor()
+    cursor.execute(
+        """
+        DROP TABLE Donante
+        """   
     )
     conn.commit()
     conn.close()
@@ -191,7 +203,8 @@ if __name__ == "__main__":
     #insertRowBeneficio(1,"Consulta Gratis Derma",1234,1,2)
     #insertRowCredencial(1234,"23-05-2023","23-05-2024",1,"Hospital","cayetanoBP","roselinda")
     #insertRowCredencial(1235,"23-05-2023","23-05-2024",1,"Donante","jennieRuby","dududu")
-    #insertRowDonante(1235,"Jennie Kim","16-01-1996","0000","911","Corea","O+","J","23-05-2023",1234)
+    #insertRowDonante(1235,"Jennie Kim","16-01-1996","0000","911","Corea","Ninguno","O+","J","23-05-2023",1234)
     #insertRowCita(1,"23-05-2023",1235,1234,1)
     #print("BD Existente")
     pass
+    
