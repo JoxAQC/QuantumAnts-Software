@@ -12,6 +12,21 @@ class Sistema:
     def __init__(self, estado):
         self.__estado = estado
 
+    def validar_campos_llenos(hospital):
+        if (
+            hospital.get_nombreDeHospital()
+            and hospital.get_direccion()
+            and hospital.get_telefono()
+            and hospital.get_estado()
+        ):
+            if (
+                hospital.get_condiciones()
+                and hospital.get_beneficios()
+                and hospital.get_horarios()
+            ):
+                return True
+        return False
+
     def registrar_credencial(credencial):
         # Obtener la ruta absoluta del directorio actual
         current_dir = os.path.abspath("")
@@ -60,19 +75,23 @@ class Sistema:
         conn.commit()
         conn.close()
 
+        
     #hospital = Hospital("""""""""",[],[],[])
     def registrarHospital(hospital,credencial,numeroLicencia):
-        # Verificar si el número de licencia está presente en el archivo JSON
-        with open("LicenciasVigentesFuncionamiento.json", "r") as archivo_json:
-            datos = json.load(archivo_json)
-            licencias_vigentes = datos["licencias_vigentes"]
-            if numeroLicencia in licencias_vigentes:
-                Sistema.registrar_credencial(credencial)
-                # Agregar hospital a la base de datos
-                Sistema.agregarHospitalBD(hospital)
-                print("Hospital se ha registrado exitosamente y se ha creado su cuenta.")
-            else:
-                print("La licencia es inválida.")
+        if Sistema.validar_campos_llenos(hospital):
+            # Verificar si el número de licencia está presente en el archivo JSON
+            with open("LicenciasVigentesFuncionamiento.json", "r") as archivo_json:
+                datos = json.load(archivo_json)
+                licencias_vigentes = datos["licencias_vigentes"]
+                if numeroLicencia in licencias_vigentes:
+                    Sistema.registrar_credencial(credencial)
+                    # Agregar hospital a la base de datos
+                    Sistema.agregarHospitalBD(hospital)
+                    print("Hospital se ha registrado exitosamente y se ha creado su cuenta.")
+                else:
+                    print("La licencia es inválida.")
+        else:
+            print("Datos ingresados incorrectamente o vacios.")
 
     def generar_id_credencial():
         # Genera un número entero aleatorio de 7 dígitos
@@ -113,6 +132,6 @@ def mainR1():
                     "Activo", condicionesLista,beneficiosLista, horariolista, credencial)
     numeroLicencia="123456"
     Sistema.registrarHospital(hospital,credencial,numeroLicencia)
- 
+   
 if __name__=="__main__":
     mainR1()
