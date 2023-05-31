@@ -2,43 +2,43 @@ from datetime import datetime
 
 class Cita:
     def __init__(self, idCita, fecha, donante, hospital, estado):
-        self.idCita = idCita
-        self.fecha = fecha
-        self.donante = donante
-        self.hospital = hospital
-        self.estado = estado
+        self.__idCita = idCita
+        self.__fecha = fecha
+        self.__donante = donante
+        self.__hospital = hospital
+        self.__estado = estado
     
     # Métodos setter y getter para la variable idCita
     def set_idCita(self, idCita):
-        self.idCita = idCita
+        self.__idCita = idCita
         
     def get_idCita(self):
-        return self.idCita
+        return self.__idCita
     
     # Métodos setter y getter para la variable fecha
     def set_fecha(self, fecha):
-        self.fecha = fecha
+        self.__fecha = fecha
         
     def get_fecha(self):
-        return self.fecha
+        return self.__fecha
     
     # Métodos setter y getter para la variable donante
     def set_donante(self, donante):
-        self.donante = donante
+        self.__donante = donante
         
     def get_donante(self):
-        return self.donante
+        return self.__donante
     
     # Métodos setter y getter para la variable hospital
     def set_hospital(self, hospital):
-        self.hospital = hospital
+        self.__hospital = hospital
         
     def get_hospital(self):
-        return self.hospital
+        return self.__hospital
     
     # Métodos setter y getter para la variable estado
     def set_estado(self, estado):
-        self.estado = estado
+        self.__estado = estado
         
     def get_estado(self):
-        return self.estado
+        return self.__estado
