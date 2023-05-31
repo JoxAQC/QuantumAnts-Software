@@ -101,116 +101,74 @@ class Sistema:
         id_credencial = random.randint(1000000, 9999999)
         return id_credencial
 
-    def confirmarCita(self, cita):
-        # Verificar y confirmar una cita en la base de datos
-        # Obtener la ruta absoluta del directorio actual
+    def confirmarCita(cita):
         current_dir = os.path.abspath("")
-        # Construir la ruta absoluta del archivo de la base de datos
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        # Establecer la conexión a la base de datos
         conn = sql.connect(db_path)
         cursor = conn.cursor()
 
-        # Verificar el estado actual de la cita en la base de datos
-        cursor.execute("SELECT estado FROM Cita WHERE idCita = ?", (cita.get_idCita(),))
-        result = cursor.fetchone()
-        if result is not None:
-            estado_actual = result[0]
-            if estado_actual == 0:  # Si el estado actual es 0 (False)
-                # Actualizar el estado de la cita en la base de datos a 1 (True)
-                cursor.execute("UPDATE Cita SET estado = 1 WHERE idCita = ?", (cita.get_idCita(),))
-                conn.commit()
-                conn.close()
-                return True
+        instruction = "SELECT COUNT(*) FROM Credencial WHERE idCita = ?"
+        cursor.execute(instruction, (cita.get_idCita(),))
+        result = cursor.fetchone()[0]
+
         conn.close()
-        return False
-    
-    def programarCita(self, donante, hora):
-        # Obtener la ruta absoluta del directorio actual
-        current_dir = os.path.abspath("")
-        # Construir la ruta absoluta del archivo de la base de datos
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        # Establecer la conexión a la base de datos
-        conn = sql.connect(db_path)
-        cursor = conn.cursor()
 
-        # Obtener la fecha para programar la cita (día siguiente)
-        fecha = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d %H:%M:%S")
-
-        # Obtener el idCita siguiente disponible
-        instruction = "SELECT MAX(idCita) FROM Cita"
-        cursor.execute(instruction)
-        result = cursor.fetchone()
-        if result[0] is not None:
-            idCita = result[0] + 1
+        if result > 0:
+            return True
         else:
-            idCita = 1
-
-        # Crear una instancia de la clase Cita
-        cita = Cita(idCita, fecha, donante, hora)
-
-        try:
-            # Guardar la cita en la base de datos
-            instruction = "INSERT INTO Cita VALUES (?, ?, ?, ?, ?)"
-            cursor.execute(instruction, (idCita, fecha, donante.idDonante, hora.idHorario, True))
-            conn.commit()
-            conn.close()
-            return True  # La cita se programó correctamente
-        except Exception as e:
-            print("Error al programar la cita:", str(e))
-            conn.rollback()
-            conn.close()
-            return False  # Error al programar la cita
-
-    def reprogramarCita(self, fechanueva):
-        # Obtener la ruta absoluta del directorio actual
+            return False
+    
+    def finalizarCita(cita):
         current_dir = os.path.abspath("")
-        # Construir la ruta absoluta del archivo de la base de datos
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        # Establecer la conexión a la base de datos
         conn = sql.connect(db_path)
         cursor = conn.cursor()
 
-        # Obtener la cita activa
-        instruction = "SELECT * FROM Cita WHERE estado = 1"
-        cursor.execute(instruction)
-        row = cursor.fetchone()
-
-        if row is not None:
-            # Actualizar la fecha de la cita
-            idCita = row[0]
-            fecha = fechanueva.strftime("%Y-%m-%d %H:%M:%S")
-            instruction = "UPDATE Cita SET fecha = ? WHERE idCita = ?"
-            cursor.execute(instruction, (fecha, idCita))
-            conn.commit()
-            conn.close()
-
-            return True  # La cita se reprogramó exitosamente
+        instruction = "DELETE FROM Credencial WHERE idCita = ?"
+        cursor.execute(instruction, (cita.get_idCita(),))
+        conn.commit()
 
         conn.close()
-        return False  # No se encontró una cita activa
-    def finalizarCita(self, donante):
-        # Obtener la ruta absoluta del directorio actual
+    
+    def programarCita(donante, horario):
         current_dir = os.path.abspath("")
-        # Construir la ruta absoluta del archivo de la base de datos
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        # Establecer la conexión a la base de datos
         conn = sql.connect(db_path)
         cursor = conn.cursor()
 
-        try:
-            # Eliminar la cita del donante en la base de datos
-            instruction = "DELETE FROM Cita WHERE idDonante = ?"
-            cursor.execute(instruction, (donante.idDonante,))
-            conn.commit()
-            conn.close()
-            return True  # La cita se eliminó correctamente
-        except Exception as e:
-            print("Error al finalizar la cita:", str(e))
-            conn.rollback()
-            conn.close()
-            return False  # Error al finalizar la cita    
+        id_donante = donante.get_idDonante()
+        fecha = horario.get_fecha()
+        estado = True  # Valor predeterminado para el campo estado
 
+        # Insertar la nueva cita en la base de datos sin incluir el campo idCita
+        instruction = "INSERT INTO Cita (fecha, idDonante, idHospital, estado) VALUES (?, ?, ?, ?)"
+        cursor.execute(instruction, (fecha, id_donante, horario.get_idHospital(), estado))
+        conn.commit()
+
+        # Obtener el idCita generado automáticamente
+        id_cita = cursor.lastrowid
+
+        # Actualizar la fila de la cita para incluir el idCita
+        update_instruction = "UPDATE Cita SET idCita = ? WHERE idCita = ?"
+        cursor.execute(update_instruction, (id_cita, id_cita))
+        conn.commit()
+
+        conn.close()
+        return True  # La cita se programó correctamente
+
+    def reprogramarCita(cita, fechaNueva):
+        current_dir = os.path.abspath("")
+        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
+        conn = sql.connect(db_path)
+        cursor = conn.cursor()
+
+        id_cita = cita.get_idCita()
+
+        instruction = "UPDATE Credencial SET fecha = ? WHERE idCita = ?"
+        cursor.execute(instruction, (fechaNueva, id_cita))
+        conn.commit()
+
+        conn.close()  
 
 def mainR1():
          
