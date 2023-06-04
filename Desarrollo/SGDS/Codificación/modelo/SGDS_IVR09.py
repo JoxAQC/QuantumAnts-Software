@@ -1,3 +1,17 @@
+from SGDS_IVR01 import Hospital
+from Credenciales import Credencial
+from Condiciones import Condiciones
+from Beneficios import Beneficios
+from Horarios import Horarios
+from Cita import Cita
+from HorarioDeAtencion import HorarioDeAtencion
+import sqlite3 as sql
+import os
+import json
+import random
+from datetime import datetime, timedelta
+
+
 class SistemaGestionDonantesSangre:
     def __init__(self):
         self.sistemas_externos = []
