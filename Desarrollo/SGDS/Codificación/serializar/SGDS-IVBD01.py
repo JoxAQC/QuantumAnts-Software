@@ -162,16 +162,6 @@ def createTableDonante():
     conn.commit()
     conn.close()
 
-def dropTableDonante():
-    conn=sql.connect("SGDS-VABD01.db")
-    cursor = conn.cursor()
-    cursor.execute(
-        """
-        DROP TABLE Donante
-        """   
-    )
-    conn.commit()
-    conn.close()
 
 def createTableCita():
     conn=sql.connect("SGDS-VABD01.db")
@@ -184,6 +174,17 @@ def createTableCita():
          idHospital integer,
          estado integer
         )"""   
+    )
+    conn.commit()
+    conn.close()
+
+def limpiarTable(tabla):
+    conn = sql.connect("SGDS-VABD01.db")
+    cursor = conn.cursor()
+    cursor.execute(
+        """
+        DELETE FROM  {}
+        """.format(tabla)
     )
     conn.commit()
     conn.close()
@@ -206,5 +207,8 @@ if __name__ == "__main__":
     #insertRowDonante(1235,"Jennie Kim","16-01-1996","0000","911","Corea","Ninguno","O+","J","23-05-2023",1234)
     #insertRowCita(1,"23-05-2023",1235,1234,1)
     #print("BD Existente")
+    #limpiarTable('Condicion')
+    #limpiarTable('Credencial')
+    #limpiarTable('HorarioDeAtencion')
+    #limpiarTable('Hospital')
     pass
-    
