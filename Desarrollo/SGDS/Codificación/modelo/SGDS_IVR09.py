@@ -3,14 +3,12 @@ from Credenciales import Credencial
 from Condiciones import Condiciones
 from Beneficios import Beneficios
 from Horarios import Horarios
-from SGDS_IVR03 import Cita
-# from HorarioDeAtencion import HorarioDeAtencion
+from SGDS_IVR03  import Cita
 import sqlite3 as sql
 import os
 import json
 import random
 from datetime import datetime, timedelta
-
 
 class SistemaGestionDonantesSangre:
     def __init__(self):
