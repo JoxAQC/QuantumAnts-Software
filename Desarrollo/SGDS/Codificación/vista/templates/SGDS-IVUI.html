@@ -7,8 +7,8 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<title>Regístrate</title>
-		<link rel="stylesheet" href="styles_iniciarS.css" />
+		<title>Iniciar Sesión</title>
+		<link rel="stylesheet" href="static/styles_iniciarS.css" />
 		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
 		<script src="https://kit.fontawesome.com/1a8c6dd550.js" crossorigin="anonymous"></script>
@@ -27,7 +27,7 @@
 
 					<div class="container-logo">
 						<i class="fa-solid fa-droplet"></i>
-						<h1 class="logo"><a href="/">BloodCare</a></h1>
+						<h1 class="logo"><a href="home">BloodCare</a></h1>
 					</div>
 
 					<div class="container-user">
@@ -38,7 +38,7 @@
 
 		<section class="login">
 			<div class="form">
-				<h2>Regístrate</h2>
+				<h2>Iniciar Sesión</h2>
 				<form action="">
 					<div class="input-field">
 						<input type="text" placeholder="Ingresa tu correo" name="correo" required />
@@ -48,11 +48,18 @@
 						<input type="password" placeholder="Ingresa tu contraseña" id="passwordInput" required />
 						<i class="uil uil-lock icon"></i>
 					</div>
+					<div class="checkbox-text">
+						<div class="checkbox-content">
+							<input type="checkbox" />
+							<label for="logCheck">Recordarme</label>
+						</div>
+						<a href="#" class="form-link">¿Olvidaste tu contraseña?</a>
+					</div>
 					<div class="input-field button">
-						<button type="submit">Registrarme</button>
+						<button type="submit">Ingresar</button>
 					</div>
 					<div class="login-signup">
-						<p>¿Ya tienes una cuenta? <a href="#">Inicia Sesión</a></p>
+						<p>¿Aún no tienes una cuenta? <a href="crear_cuenta">Regístrate</a></p>
 					</div>
 				</form>
 			</div>			

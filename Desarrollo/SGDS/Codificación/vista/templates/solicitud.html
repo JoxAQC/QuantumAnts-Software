@@ -7,9 +7,8 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<title>Perfil</title>
-		<link rel="stylesheet" href="styles_perfil.css" />
-		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+		<title>Solicitud de citas</title>
+		<link rel="stylesheet" href="static/styles_solicitud.css" />
 	</head>
 	<body>
 		<header>
@@ -25,20 +24,20 @@
 
 					<div class="container-logo">
 						<i class="fa-solid fa-droplet"></i>
-						<h1 class="logo"><a href="/">BloodCare</a></h1>
+						<h1 class="logo"><a href="home">BloodCare</a></h1>
 					</div>
 
 					<div class="container-user">
-						<a href="perfil.html"> <i class="fa-solid fa-user"></i> </a>
-				</div>
+						<a href="perfil"> <i class="fa-solid fa-user"></i> </a>
+					</div>
 			</div>
 			<div class="container-navbar">
 				<nav class="navbar container">
 					<i class="fa-solid fa-bars"></i>
 					<ul class="menu">
-						<li><a href="inicio.html">Inicio</a></li>
-						<li><a href="conocenos.html">Conócenos</a></li>
-						<li><a href="contactanos.html">Contáctanos</a></li>
+						<li><a href="home">Inicio</a></li>
+						<li><a href="conocenos">Conócenos</a></li>
+						<li><a href="contactanos">Contáctanos</a></li>
 					</ul>
 
 					<form class="search-form">
@@ -52,17 +51,23 @@
 		</header>
 
 	
-<section class="section1">
+<section class="formulario-citas">
   <div class="contenido5">
-    <img src="img/foto_perfil.jpg" alt="Imagen de perfil" class="perfil-img">
-    <h2>Datos personales</h2>
+    <h2>Formulario de solicitud de citas</h2>
     <div class="datos-personales">
       <div class="form-group">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" class="input-large" required>
       </div>
+    <div class="form-group">
+      <label for="tipo-doc">Doc de identidad:</label>
+      <select id="tipo-doc" name="tipo-doc" class="input-mode" required>
+        <option value="dni">DNI</option>
+        <option value="pasaporte">Pasaporte</option>
+      </select>
+    </div>
       <div class="form-group">
-        <label for="dni">DNI:</label>
+        <label for="dni">N° de doc:</label>
         <input type="text" id="dni" name="dni" class="input-small" required>
       </div>
       <div class="form-group">
@@ -71,7 +76,7 @@
       </div>
       <div class="form-group">
         <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion" class="input-small" required>
+        <input type="text" id="direccion" name="direccion" class="input-medium" required>
       </div>
       <div class="form-group">
         <label for="fecha-nacimiento">Fecha de nacimiento:</label>
@@ -82,59 +87,51 @@
 </section>
 
 
-<section class="section2">
-  <h1 class="titulo2">Historial de donaciones</h1>
-  <hr class="separador2">
-  <div class="fila2">
-    <div class="columna2">Hospital</div>
-    <div class="columna2">Fecha</div>
-    <div class="columna2">Detalles</div>
-  </div>
-  <div class="fila2">
-    <div class="columna2">Nombre del hospital 1</div>
-    <div class="columna2"><input type="date" id="fecha" name="fecha" class="input-small" required></div>
-    <div class="columna2"><button class="boton2">Saber más</button></div>
-  </div>
-  <div class="fila2">
-    <div class="columna2">Nombre del hospital 2</div>
-    <div class="columna2"><input type="date" id="fecha" name="fecha" class="input-small" required></div>
-    <div class="columna2"><button class="boton2">Saber más</button></div>
-  </div>
-   <div class="fila2">
-    <div class="columna2">Nombre del hospital 3</div>
-    <div class="columna2"><input type="date" id="fecha" name="fecha" class="input-small" required></div>
-    <div class="columna2"><button class="boton2">Saber más</button></div>
+
+<section class="seccion2">
+  <div class="contenido2">
+    <h2>Datos para la cita</h2>
+    <div class="datos-personales2">
+      <div class="form-group2">
+        <label for="nombre">Hospital:</label>
+        <input type="text" id="nombre" name="nombre" class="input-large" required>
+      </div>
+    <div class="form-group">
+      <label for="tipo-doc">Grupo sanguineo:</label>
+      <select id="tipo-doc" name="tipo-doc" class="input-mode" required>
+        <option value="A">Grupo A</option>
+        <option value="B">Grupo B</option>
+        <option value="AB">Grupo AB</option>
+        <option value="O">Grupo O</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="tipo-doc">Tipo de RH:</label>
+      <select id="tipo-doc" name="tipo-doc" class="input-mode" required>
+        <option value="pos">RH positivo</option>
+        <option value="neg">RH negativo</option>
+      </select>
+    </div>
+      <div class="form-group2">
+        <label for="ultima">Ultima donación:</label>
+        <input type="date" id="ultima" name="ultima" class="input-small" required>
+      </div>
+    </div>
+    <div class="form-group2">
+     <button type="submit">  Enviar solicitud  </button>
+     </div>
   </div>
 </section>
 
-
-<section class="section3">
-  <h1 class="titulo3">Beneficios recibidos</h1>
-  <div class="fila3">
-    <div class="cuadro3">
-      <img class="imagen3" src="img/beneficio1.jpg" alt="Imagen 1">
-      <div class="texto3">
-        <p>Texto del beneficio 1</p>
-        <button class="boton3">Detalles</button>
-      </div>
-    </div>
-    <div class="cuadro3">
-      <img class="imagen3" src="img/beneficio2.jpg" alt="Imagen 2">
-      <div class="texto3">
-        <p>Texto del beneficio 2</p>
-        <button class="boton3">Detalles</button>
-      </div>
-    </div>
-    <div class="cuadro3">
-      <img class="imagen3" src="img/beneficio3.jpg" alt="Imagen 3">
-      <div class="texto3">
-        <p>Texto del beneficio 3</p>
-        <button class="boton3">Detalles</button>
-      </div>
-    </div>
-  </div>
-</section>
-
+	<section class="seccion3">
+ 			<div class="contenido3">
+ 				<h1>Comunicate con nosotros</h1>
+ 				<p>Si tienes alguna duda comunicate al ...</p>
+ 			</div>
+    		<a href="contactanos">
+      			<img src="img/product2.jpg" alt="Descripción de la imagen">
+    		</a>
+ 	</section>
 
 
 		<footer class="footer">
@@ -164,15 +161,15 @@
 					</div>
 
 					<div class="information">
-						<button  class="button-footer">
-							<a href="conocenos.html">
+						<button  class="button-footer"> 
+							<a href="conocenos">
 							<p class="title-footer">Conócenos</p></a>
 						</button>
 					</div>
 
 					<div class="my-account">
 						<button  class="button-footer">
-							<a href="transpariencia.html">
+							<a href="transpareencia">
 							<p class="title-footer">Transparencia</p></a>
 						</button>
 					</div>
@@ -185,7 +182,7 @@
 								Horario de atención: 8am-8pm
 							</p>
 							<br>
-							<a href="contactanos.html">
+							<a href="contactanos">
 							<button>Contáctanos</button></a>
 						</div>
 					</div>
@@ -197,7 +194,5 @@
 			src="https://kit.fontawesome.com/81581fb069.js"
 			crossorigin="anonymous"
 		></script>
-	
-
 	</body>
 </html>

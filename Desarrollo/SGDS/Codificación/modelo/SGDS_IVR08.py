@@ -1,24 +1,32 @@
 import sqlite3 as sql
 import os
 
-def buscar_donantes(donante, grupo_sanguineo, ubicacion):
+def conectar_bd():  
+    # Obtener la ruta absoluta al archivo de base de datos
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(current_directory, "..", "serializar", "SGDS-VABD01.db")
+
+    # Establecer conexión con la base de datos
+    conn = sql.connect(db_path)
+    return conn
+
+def buscar_usuario(donante, user, password):
     conn = donante.conectar_bd()
     cursor = conn.cursor()
 
     try:
         cursor.execute(
-            "SELECT * FROM Donante WHERE grupo_sanguineo = ? AND direccion LIKE ?",
-            (grupo_sanguineo, f"%{ubicacion}%"),
+            "SELECT * FROM Credencial WHERE user = ? AND password = ?",
+            (user, password),
         )
 
-        donantes = cursor.fetchall()
+        usuario = cursor.fetchone()
 
-        return donantes
+        return usuario
     except sql.Error as e:
-        print("Error al buscar donantes:", str(e))
+        print("Error al buscar usuario:", str(e))
 
-    conn.close()
-    return []
+    return None
 
 
 def verCitas(donante):
