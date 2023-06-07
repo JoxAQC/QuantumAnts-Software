@@ -65,5 +65,5 @@ print(reporte_numero_hospitales.generar_reporte_numero_hospitales(hospitales))
 
 # Generar reporte de úmero de donantes en el sistema
 donantes = [persona1, persona2]
-reporte_numero_donantes = Reporte("Reporte de Número de Donantes", "Número de Donantes")
+reporte_numero_donantes = Reporte("Reporte  de Número de Donantes", "Número de Donantes")
 print(reporte_numero_donantes.generar_reporte_numero_donantes(donantes))
