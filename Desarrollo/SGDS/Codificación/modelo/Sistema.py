@@ -1,10 +1,10 @@
-from Hospital import Hospital
+from SGDS_IVR01 import Hospital
 from Credenciales import Credencial
 from Condiciones import Condiciones
 from Beneficios import Beneficios
 from Horarios import Horarios
-from Cita import Cita
-from HorarioDeAtencion import HorarioDeAtencion
+from SGDS_IVR03  import Cita
+from SGDS_IVR08 import *
 import sqlite3 as sql
 import os
 import json

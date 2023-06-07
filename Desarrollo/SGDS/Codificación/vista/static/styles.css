@@ -25,6 +25,11 @@ html {
 	margin: 0 auto;
 }
 
+a:link, a:visited, a:active {
+    text-decoration:none;
+	color: var(--background-color);
+}
+
 .heading-1 {
 	margin-top: 1.5em;
 	text-align: center;
