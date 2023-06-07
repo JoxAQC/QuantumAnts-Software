@@ -1,4 +1,4 @@
-class Horarios:
+class Horario:
     def __init__(self,idHorario,descripcion,hora,idHospital):
         self.__idHorario = idHorario
         self.__descripcion = descripcion
