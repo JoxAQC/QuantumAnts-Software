@@ -156,6 +156,13 @@ if __name__ == "__main__":
     tabla.heading("Contacto", text="Contacto")
     tabla.heading("Estado", text="Estado")
 
+    # Alinear el texto al centro de cada columna
+    tabla.column("IDHospital", anchor="center")
+    tabla.column("NombreHospital", anchor="center")
+    tabla.column("Direccion", anchor="center")
+    tabla.column("Contacto", anchor="center")
+    tabla.column("Estado", anchor="center")
+
     # Agregar los resultados a la tabla
     for resultado in resultados:
         tabla.insert("", "end", values=resultado)
