@@ -17,3 +17,16 @@ class OperacionCondicion:
 
         conn.close()
         return True  # La condición se agregó correctamente
+    
+    def eliminarCondicion(self,condicion):
+        current_dir = os.path.abspath("")
+        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
+        conn = sql.connect(db_path)
+        cursor = conn.cursor()
+
+        instruction = "DELETE FROM Condicion WHERE idCondicion = ?"
+        cursor.execute(instruction, (condicion.get_idCondicion(),))
+        conn.commit()
+
+        conn.close()
+        return True  # La condición se eliminó correctamente
