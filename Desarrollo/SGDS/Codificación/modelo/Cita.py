@@ -1,5 +1,3 @@
-from datetime import datetime
-
 class Cita:
     def __init__(self, idCita, fecha, donante, hospital, estado):
         self.__idCita = idCita

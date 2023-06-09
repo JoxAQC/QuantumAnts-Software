@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Solicitud de citas</title>
+		<link rel="stylesheet" href="static/styles_solicitud.css" />
+	</head>
+	<body>
+		<header>
+			<div class="container-hero">
+				<div class="container hero">
+					<div class="customer-support">
+						<i class="fa-solid fa-headset"></i>
+						<div class="content-customer-support">
+							<span class="text">Soporte al cliente</span>
+							<span class="number">123-456-7890</span>
+						</div>
+					</div>
+
+					<div class="container-logo">
+						<i class="fa-solid fa-droplet"></i>
+						<h1 class="logo"><a href="home">BloodCare</a></h1>
+					</div>
+
+					<div class="container-user">
+						<a href="perfil"> <i class="fa-solid fa-user"></i> </a>
+					</div>
+			</div>
+			<div class="container-navbar">
+				<nav class="navbar container">
+					<i class="fa-solid fa-bars"></i>
+					<ul class="menu">
+						<li><a href="home">Inicio</a></li>
+						<li><a href="conocenos">Conócenos</a></li>
+						<li><a href="contactanos">Contáctanos</a></li>
+					</ul>
+
+					<form class="search-form">
+						<input type="search" placeholder="Buscar..." />
+						<button class="btn-search">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</button>
+					</form>
+				</nav>
+			</div>
+		</header>
+
+	
+<section class="formulario-citas">
+  <div class="contenido5">
+    <h2>Formulario de solicitud de citas</h2>
+    <div class="datos-personales">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" class="input-large" required>
+      </div>
+    <div class="form-group">
+      <label for="tipo-doc">Doc de identidad:</label>
+      <select id="tipo-doc" name="tipo-doc" class="input-mode" required>
+        <option value="dni">DNI</option>
+        <option value="pasaporte">Pasaporte</option>
+      </select>
+    </div>
+      <div class="form-group">
+        <label for="dni">N° de doc:</label>
+        <input type="text" id="dni" name="dni" class="input-small" required>
+      </div>
+      <div class="form-group">
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" class="input-small" required>
+      </div>
+      <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" class="input-medium" required>
+      </div>
+      <div class="form-group">
+        <label for="fecha-nacimiento">Fecha de nacimiento:</label>
+        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="input-small" required>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="seccion2">
+  <div class="contenido2">
+    <h2>Datos para la cita</h2>
+    <div class="datos-personales2">
+      <div class="form-group2">
+        <label for="nombre">Hospital:</label>
+        <input type="text" id="nombre" name="nombre" class="input-large" required>
+      </div>
+    <div class="form-group">
+      <label for="tipo-doc">Grupo sanguineo:</label>
+      <select id="tipo-doc" name="tipo-doc" class="input-mode" required>
+        <option value="A">Grupo A</option>
+        <option value="B">Grupo B</option>
+        <option value="AB">Grupo AB</option>
+        <option value="O">Grupo O</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="tipo-doc">Tipo de RH:</label>
+      <select id="tipo-doc" name="tipo-doc" class="input-mode" required>
+        <option value="pos">RH positivo</option>
+        <option value="neg">RH negativo</option>
+      </select>
+    </div>
+      <div class="form-group2">
+        <label for="ultima">Ultima donación:</label>
+        <input type="date" id="ultima" name="ultima" class="input-small" required>
+      </div>
+    </div>
+    <div class="form-group2">
+     <button type="submit">  Enviar solicitud  </button>
+     </div>
+  </div>
+</section>
+
+	<section class="seccion3">
+ 			<div class="contenido3">
+ 				<h1>Comunicate con nosotros</h1>
+ 				<p>Si tienes alguna duda comunicate al ...</p>
+ 			</div>
+    		<a href="contactanos">
+      			<img src="img/product2.jpg" alt="Descripción de la imagen">
+    		</a>
+ 	</section>
+
+
+		<footer class="footer">
+			<div class="container container-footer">
+				<div class="menu-footer">
+					<div class="contact-info">
+						<button class="button-footer">
+							<p class="title-footer">Libro de reclamaciones</p>
+						</button>
+						<div class="social-icons">
+							<span class="facebook">
+								<i class="fa-brands fa-facebook-f"></i>
+							</span>
+							<span class="twitter">
+								<i class="fa-brands fa-twitter"></i>
+							</span>
+							<span class="youtube">
+								<i class="fa-brands fa-youtube"></i>
+							</span>
+							<span class="pinterest">
+								<i class="fa-brands fa-pinterest-p"></i>
+							</span>
+							<span class="instagram">
+								<i class="fa-brands fa-instagram"></i>
+							</span>
+						</div>
+					</div>
+
+					<div class="information">
+						<button  class="button-footer"> 
+							<a href="conocenos">
+							<p class="title-footer">Conócenos</p></a>
+						</button>
+					</div>
+
+					<div class="my-account">
+						<button  class="button-footer">
+							<a href="transpareencia">
+							<p class="title-footer">Transparencia</p></a>
+						</button>
+					</div>
+
+					<div class="newsletter">
+						<p class="title-footer">Estamos para ayudarte</p>
+
+						<div class="content">
+							<p>
+								Horario de atención: 8am-8pm
+							</p>
+							<br>
+							<a href="contactanos">
+							<button>Contáctanos</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script
+			src="https://kit.fontawesome.com/81581fb069.js"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
