@@ -40,7 +40,7 @@ class OperacionCita:
         conn = sql.connect(db_path)
         cursor = conn.cursor()
 
-        id_donante = donante.get_id_donante()
+        id_donante = donante.get_idDonante()
         fecha = horario.get_fecha()
         estado = True  # Valor predeterminado para el campo estado
 
