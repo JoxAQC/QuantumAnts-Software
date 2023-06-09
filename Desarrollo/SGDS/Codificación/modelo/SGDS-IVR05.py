@@ -14,24 +14,39 @@ def conectar_bd():
         conn = sql.connect(db_path)
         return conn
 
-def entregaBeneficios(idCredencial):
+def entregar_beneficios(idDonante):
     conn = conectar_bd()
     cursor = conn.cursor()
 
     beneficio_random = random.choice(Beneficios)
 
     try:
-        cursor.execute("SELECT desripcion FROM Beneficio WHERE idHospital = ?",(idCredencial,))
+        cursor.execute("SELECT beneficioActivo FROM Donante WHERE idDonante = ?",(idDonante,))
         valor_actual = cursor.fetchone()[0]
         nuevo_valor = valor_actual + f"\n{beneficio_random}"
 
-        cursor.execute("UPDATE Beneficio SET desripcion = ? WHERE idHospital = ?",(nuevo_valor,idCredencial))
+        cursor.execute("UPDATE Donante SET beneficioActivo = ? WHERE idDonante = ?",(nuevo_valor,idDonante))
         conn.commit()
         print("Beneficio registrado correctamente.")
     except sql.Error as e:
          print("Error al entregar beneficios:",str(e))
 
+    cursor.close()
+    conn.close()
 
+def validar_condiciones(idHospital):
+    conn = conectar_bd()
+    cursor = conn.cursor()
 
-    cursor.close
-    conn.close
+    try:
+        cursor.execute("SELECT cantidadSangre FROM Beneficio WHERE idHospital = ? ",(idHospital,))
+        cantidad_sangre = cursor.fetchone()[0]
+        if(cantidad_sangre > 0):
+             return True
+        else:
+             return False
+    except sql.Error as e:
+        print("Error al validar condiciones de beneficio:",str(e))
+
+    cursor.close()
+    conn.close()

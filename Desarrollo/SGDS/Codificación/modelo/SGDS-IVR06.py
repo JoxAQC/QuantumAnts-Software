@@ -2,6 +2,8 @@ import sqlite3 as sql
 import os 
 import bcrypt
 import re
+import smtplib
+from email.mime.text import MIMEText
 
 def conectar_bd():  
         # Obtener la ruta absoluta al archivo de base de datos
@@ -85,11 +87,39 @@ def validar_informacion(nick, contraseña):
 
     return True
 
-#Ejemplo de uso de validar informacion
-nick = "usuario123"
-contraseña = "MiContraseña123!"
 
-if validar_informacion(nick, contraseña):
-    print("Contraseña válida. Puede proceder con el registro.")
-else:
-    print("Contraseña inválida. Asegúrese de cumplir con las políticas de contraseñas seguras.")
+import smtplib
+from email.mime.text import MIMEText
+
+def enviar_correo_confirmacion(correo_destino, codigo_confirmacion):
+    # Configuración del servidor SMTP
+    servidor_smtp = "smtp.gmail.com"
+    puerto_smtp = 587
+    correo_emisor = "correo@unmsm.edu.pe"
+    contraseña_emisor = "password"
+
+    # Crear el objeto del mensaje de correo
+    mensaje = MIMEText(f"Hola, para confirmar tu registro, utiliza el siguiente código: {codigo_confirmacion}")
+
+    # Configurar los detalles del mensaje
+    mensaje["Subject"] = "Confirmación de registro"
+    mensaje["From"] = correo_emisor
+    mensaje["To"] = correo_destino
+
+    try:
+        # Iniciar conexión con el servidor SMTP
+        servidor = smtplib.SMTP(servidor_smtp, puerto_smtp)
+        servidor.starttls()
+
+        # Autenticar con el servidor SMTP
+        servidor.login(correo_emisor, contraseña_emisor)
+
+        # Enviar el mensaje de correo
+        servidor.send_message(mensaje)
+
+        # Cerrar la conexión con el servidor SMTP
+        servidor.quit()
+
+        print("Correo de confirmación enviado correctamente.")
+    except Exception as e:
+        print("Error al enviar el correo de confirmación:", str(e))
