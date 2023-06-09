@@ -28,7 +28,7 @@ class OperacionCita:
         conn = sql.connect(db_path)
         cursor = conn.cursor()
 
-        instruction = "DELETE FROM Credencial WHERE idCita = ?"
+        instruction = "DELETE FROM Cita WHERE idCita = ?"
         cursor.execute(instruction, (cita.get_idCita(),))
         conn.commit()
 
