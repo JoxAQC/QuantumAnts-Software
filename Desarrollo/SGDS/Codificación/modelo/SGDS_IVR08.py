@@ -10,8 +10,8 @@ def conectar_bd():
     conn = sql.connect(db_path)
     return conn
 
-def buscar_usuario(donante, user, password):
-    conn = donante.conectar_bd()
+def buscar_usuario(user, password):
+    conn = sql.connect("serializar/SGDS-VABD01.db")
     cursor = conn.cursor()
 
     try:

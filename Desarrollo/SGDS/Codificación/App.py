@@ -1,4 +1,5 @@
-
+from modelo.SGDS_IVR02 import Donante
+from modelo.Credenciales import Credencial
 from modelo.SGDS_IVR08 import *
 import json
 import os
@@ -22,6 +23,10 @@ tipo = None
 
 @app.route('/login',methods=['POST', 'GET'])
 def iniciar_sesion():
+        user = input("User:")
+        password = input("Passoword:")
+        usuario = buscar_usuario(user,password)
+        print(usuario)
     # output = request.form.to_dict()
     # print(output)
     # global user
