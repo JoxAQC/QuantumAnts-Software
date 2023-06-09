@@ -11,7 +11,7 @@ class OperacionCita:
         conn = sql.connect(db_path)
         cursor = conn.cursor()
 
-        instruction = "SELECT COUNT(*) FROM Credencial WHERE idCita = ?"
+        instruction = "SELECT COUNT(*) FROM Cita WHERE idCita = ?"
         cursor.execute(instruction, (cita.get_idCita(),))
         result = cursor.fetchone()[0]
 
