@@ -1,5 +1,7 @@
 class Hospital:
-    def __init__(self, idHospital,nombreDeHospital, direccion, telefono, estado, condiciones, beneficios, horarios,credencial):
+    def __init__(self, idHospital,nombreDeHospital, 
+                 direccion, telefono, estado, condiciones, 
+                 beneficios, horarios,credencial):
         self.__idHospital = idHospital
         self.__nombreDeHospital = nombreDeHospital
         self.__direccion = direccion
@@ -66,6 +68,12 @@ class Hospital:
     def get_horarios(self):
         return self.__horarios
 
+    # Setter y Getter para credencial
+    def set_credencial(self, credencial):
+        self.__credencial = credencial
+
+    def get_credencial(self):
+        return self.__credencial
 
 #datos_licencias = {
 #    "licencias_vigentes": [

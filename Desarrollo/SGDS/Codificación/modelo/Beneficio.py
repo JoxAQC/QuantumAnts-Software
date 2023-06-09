@@ -1,4 +1,4 @@
-class Beneficios:
+class Beneficio:
     def __init__(self,idBeneficio,descripcion,idHospital,cantidadSangre,minimoDonaciones):
         self.__idBeneficio = idBeneficio
         self.__descripcion = descripcion

@@ -1,4 +1,4 @@
-class Condiciones:
+class Condicion:
     def __init__(self,idCondicion,descripcion,idHospital):
         self.__idCondicion = idCondicion
         self.__descripcion = descripcion
