@@ -209,6 +209,8 @@ if __name__ == "__main__":
     #print("BD Existente")
     #limpiarTable('Condicion')
     #limpiarTable('Credencial')
+    #limpiarTable('Cita')
     #limpiarTable('HorarioDeAtencion')
     #limpiarTable('Hospital')
-    pass
+    #limpiarTable('Beneficio')
+    #limpiarTable('Donante')
