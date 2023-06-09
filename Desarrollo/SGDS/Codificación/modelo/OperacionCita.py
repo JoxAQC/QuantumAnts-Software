@@ -11,7 +11,7 @@ class OperacionCita:
         conn = sql.connect(db_path)
         cursor = conn.cursor()
 
-        instruction = "SELECT COUNT(*) FROM Credencial WHERE idCita = ?"
+        instruction = "SELECT COUNT(*) FROM Cita WHERE idCita = ?"
         cursor.execute(instruction, (cita.get_idCita(),))
         result = cursor.fetchone()[0]
 
@@ -28,7 +28,7 @@ class OperacionCita:
         conn = sql.connect(db_path)
         cursor = conn.cursor()
 
-        instruction = "DELETE FROM Credencial WHERE idCita = ?"
+        instruction = "DELETE FROM Cita WHERE idCita = ?"
         cursor.execute(instruction, (cita.get_idCita(),))
         conn.commit()
 
@@ -40,7 +40,7 @@ class OperacionCita:
         conn = sql.connect(db_path)
         cursor = conn.cursor()
 
-        id_donante = donante.get_id_donante()
+        id_donante = donante.get_id_Donante()
         fecha = horario.get_fecha()
         estado = True  # Valor predeterminado para el campo estado
 

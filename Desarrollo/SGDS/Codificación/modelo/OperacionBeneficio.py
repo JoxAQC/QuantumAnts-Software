@@ -1,3 +1,4 @@
+import os
 import sqlite3 as sql
 
 class OperacionBeneficio:
@@ -113,3 +114,23 @@ class OperacionBeneficio:
             print("Error al obtener los beneficios del hospital:", str(e))
 
         conn.close()
+
+    def validarBeneficio(self,beneficio):
+        current_dir = os.path.abspath("")
+        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
+        conn = sql.connect(db_path)
+        cursor = conn.cursor()
+
+        # Obtener el beneficio correspondiente al idBeneficio proporcionado
+        select_instruction = "SELECT * FROM Beneficio WHERE idBeneficio = ?"
+        cursor.execute(select_instruction, (beneficio.get_idBeneficio(),))
+        result = cursor.fetchone()
+
+        if result:
+            # Comparar los valores de cantidadSngre y minimoDonacion con los del beneficio proporcionado
+            id_beneficio, descripcion, id_hospital, cantidad_sangre, minimo_donacion = result
+            if cantidad_sangre == beneficio.get_cantidadSangre() and minimo_donacion == beneficio.get_minimoDonaciones():
+                conn.close()
+                return True  # El beneficio es válido
+        conn.close()
+        return False  # El beneficio no es válido
