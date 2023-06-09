@@ -1,5 +1,5 @@
-from modelo.SGDS_IVR02 import Donante
-from modelo.Credenciales import Credencial
+from modelo.Donante import Donante
+from modelo.Credencial import Credencial
 from modelo.SGDS_IVR08 import *
 import json
 import os
@@ -14,48 +14,47 @@ def home():
     return render_template("index.html")
 
 usuarioEnSesion = None  
-carrito = []
-user = None
-password = None
-txt = None
-txt2 = None
-tipo = None
 
-@app.route('/login',methods=['POST', 'GET'])
-def iniciar_sesion():
-        user = input("User:")
-        password = input("Passoword:")
-        usuario = buscar_usuario(user,password)
-        print(usuario)
-    # output = request.form.to_dict()
-    # print(output)
-    # global user
-    # usuario = output["usuario"]
-    # user = usuario
-    # global password
-    # contraseña = output["contraseña"]
-    # password = contraseña
+@app.route('/login')
+def inciar_sesion():
+    return render_template("SGDS-IVUI.html")
 
-    # global usuarioEnSesion 
-    # usuarioEnSesion = buscar_usuario([],usuario, contraseña)
+@app.route('/loginin',methods=['POST', 'GET'])
+def ingresar():
+    output = request.form.to_dict()
+    global user
+    usuario = output["usuario"]
+    user = usuario
+    global password
+    contraseña = output["contraseña"]
+    password = contraseña
+
+    global usuarioEnSesion 
+    usuarioEnSesion = buscar_usuario(usuario, contraseña)
 
 
-    # if usuarioEnSesion is None:
-    #     mensaje = "Usuario no registrado, inténtelo nuevamente, por favor"
-    #     global txt
-    #     txt = None
-    #     global txt2
-    #     txt2 = None
-    #     return render_template("index.html", mensaje = mensaje)
-    # else:
-        return render_template("SGDS-IVUI.html")
+    if usuarioEnSesion is None:
+        mensaje = "Usuario no registrado, inténtelo nuevamente, por favor"
+        return render_template("SGDS-IVUI.html", mensaje = mensaje)
+    else:
+        return render_template("index.html")
     
    
 @app.route('/crear_cuenta')
 def crear_cuenta():
-    # if txt != None and txt2 != None:
-    #     return render_template("page.html", txt = txt, txt2 = txt2)
-    # else:
+    # output = request.form.to_dict()
+    # user = output["usuario"]
+    # password = output["contraseña"]
+    # name = output["nombre"]
+    # lastname = output["apellido"]
+    # mail = output["correo"]
+
+    # new_User = Donante(user, password, name, lastname, mail)
+    # new_User.registrar()
+
+    # register = "Registrado correctamente, inicie sesión para continuar"
+
+    # return render_template("SGDS-IVUI.html", register = register)
         return render_template("crear_cuenta.html")
 
 @app.route('/conocenos')
