@@ -50,78 +50,80 @@
 			</div>
 		</header>
 
-	
-<section class="formulario-citas">
-  <div class="contenido5">
-    <h2>Formulario de solicitud de citas</h2>
-    <div class="datos-personales">
-      <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" class="input-large" required>
-      </div>
-    <div class="form-group">
-      <label for="tipo-doc">Doc de identidad:</label>
-      <select id="tipo-doc" name="tipo-doc" class="input-mode" required>
-        <option value="dni">DNI</option>
-        <option value="pasaporte">Pasaporte</option>
-      </select>
-    </div>
-      <div class="form-group">
-        <label for="dni">N° de doc:</label>
-        <input type="text" id="dni" name="dni" class="input-small" required>
-      </div>
-      <div class="form-group">
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" class="input-small" required>
-      </div>
-      <div class="form-group">
-        <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion" class="input-medium" required>
-      </div>
-      <div class="form-group">
-        <label for="fecha-nacimiento">Fecha de nacimiento:</label>
-        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="input-small" required>
-      </div>
-    </div>
-  </div>
-</section>
+<form action="/registrarSolictud" method="post">
+	<section class="formulario-citas">
+		<div class="contenido5">
+		  <h2>Formulario de solicitud de citas</h2>
+		  <div class="datos-personales">
+			<div class="form-group">
+			  <label for="nombre">Nombre:</label>
+			  <input type="text" id="nombre" name="nombre" class="input-large" required>
+			</div>
+		  <div class="form-group">
+			<label for="tipo-doc">Doc de identidad:</label>
+			<select id="tipo-doc" name="tipo-doc" class="input-mode" required>
+			  <option value="dni">DNI</option>
+			  <option value="pasaporte">Pasaporte</option>
+			</select>
+		  </div>
+			<div class="form-group">
+			  <label for="dni">N° de doc:</label>
+			  <input type="text" id="dni" name="dni" class="input-small" required>
+			</div>
+			<div class="form-group">
+			  <label for="telefono">Teléfono:</label>
+			  <input type="tel" id="telefono" name="telefono" class="input-small" required>
+			</div>
+			<div class="form-group">
+			  <label for="direccion">Dirección:</label>
+			  <input type="text" id="direccion" name="direccion" class="input-medium" required>
+			</div>
+			<div class="form-group">
+			  <label for="fecha-nacimiento">Fecha de nacimiento:</label>
+			  <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="input-small" required>
+			</div>
+		  </div>
+		</div>
+	  </section>
+	  
+	  
+	  
+	  <section class="seccion2">
+		<div class="contenido2">
+		  <h2>Datos para la cita</h2>
+		  <div class="datos-personales2">
+			<div class="form-group2">
+			  <label for="nombre">Hospital:</label>
+			  <input type="text" id="hospital" name="hospital" class="input-large" required>
+			</div>
+		  <div class="form-group">
+			<label for="tipo-doc">Grupo sanguineo:</label>
+			<select id="tipo-doc" name="tipo-doc" class="input-mode" required>
+			  <option value="A">Grupo A</option>
+			  <option value="B">Grupo B</option>
+			  <option value="AB">Grupo AB</option>
+			  <option value="O">Grupo O</option>
+			</select>
+		  </div>
+		  <div class="form-group">
+			<label for="tipo-doc">Tipo de RH:</label>
+			<select id="tipo-doc" name="tipo-doc" class="input-mode" required>
+			  <option value="pos">RH positivo</option>
+			  <option value="neg">RH negativo</option>
+			</select>
+		  </div>
+			<div class="form-group2">
+			  <label for="ultima">Ultima donación:</label>
+			  <input type="date" id="ultima" name="ultima" class="input-small" required>
+			</div>
+		  </div>
+		  <div class="form-group2">
+		   <button type="submit">  Enviar solicitud  </button>
+		   </div>
+		</div>
+	  </section>
+</form>	
 
-
-
-<section class="seccion2">
-  <div class="contenido2">
-    <h2>Datos para la cita</h2>
-    <div class="datos-personales2">
-      <div class="form-group2">
-        <label for="nombre">Hospital:</label>
-        <input type="text" id="nombre" name="nombre" class="input-large" required>
-      </div>
-    <div class="form-group">
-      <label for="tipo-doc">Grupo sanguineo:</label>
-      <select id="tipo-doc" name="tipo-doc" class="input-mode" required>
-        <option value="A">Grupo A</option>
-        <option value="B">Grupo B</option>
-        <option value="AB">Grupo AB</option>
-        <option value="O">Grupo O</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="tipo-doc">Tipo de RH:</label>
-      <select id="tipo-doc" name="tipo-doc" class="input-mode" required>
-        <option value="pos">RH positivo</option>
-        <option value="neg">RH negativo</option>
-      </select>
-    </div>
-      <div class="form-group2">
-        <label for="ultima">Ultima donación:</label>
-        <input type="date" id="ultima" name="ultima" class="input-small" required>
-      </div>
-    </div>
-    <div class="form-group2">
-     <button type="submit">  Enviar solicitud  </button>
-     </div>
-  </div>
-</section>
 
 	<section class="seccion3">
  			<div class="contenido3">
@@ -129,7 +131,7 @@
  				<p>Si tienes alguna duda comunicate al ...</p>
  			</div>
     		<a href="contactanos">
-      			<img src="img/product2.jpg" alt="Descripción de la imagen">
+      			<img src="static/img/product2.jpg" alt="Descripción de la imagen">
     		</a>
  	</section>
 

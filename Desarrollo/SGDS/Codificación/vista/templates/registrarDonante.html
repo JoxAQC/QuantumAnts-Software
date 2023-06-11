@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Regístrate</title>
+		<link rel="stylesheet" href="../static/styles_iniciarS.css" />
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+		<script src="https://kit.fontawesome.com/1a8c6dd550.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<header class="header">
+			<div class="container-hero">
+				<div class="container hero">
+					<div class="customer-support">
+						<i class="fa-solid fa-headset"></i>
+						<div class="content-customer-support">
+							<span class="text">Soporte al cliente</span>
+							<span class="number">123-456-7890</span>
+						</div>
+					</div>
+
+					<div class="container-logo">
+						<i class="fa-solid fa-droplet"></i>
+						<h1 class="logo"><a href="home">BloodCare</a></h1>
+					</div>
+
+					<div class="container-user">
+						<i class="fa-solid fa-user"></i>
+				</div>
+			</div>
+		</header>
+
+		<section class="login">
+			<div class="form">
+				<h2>Regístrate</h2>
+				<form action="/registrarDatos" method="POST">
+					<div class="contenidoForm">
+						<div class="datos-personales">
+						  <div class="form-group">
+							<label for="nombre">Nombre:</label>
+							<input type="text" id="nombre" name="nombre" class="input-large" required>
+						  </div>
+						<div class="form-group">
+						  <label for="tipo-doc">Doc de identidad:</label>
+						  <select id="tipo-doc" name="tipo-doc" class="input-mode" required>
+							<option value="dni">DNI</option>
+							<option value="pasaporte">Pasaporte</option>
+						  </select>
+						</div>
+						  <div class="form-group">
+							<label for="dni">N° de doc:</label>
+							<input type="text" id="dni" name="dni" class="input-small" required>
+						  </div>
+						  <div class="form-group">
+							<label for="telefono">Teléfono:</label>
+							<input type="tel" id="telefono" name="telefono" class="input-small" required>
+						  </div>
+						  <div class="form-group">
+							<label for="direccion">Dirección:</label>
+							<input type="text" id="direccion" name="direccion" class="input-small" required>
+						  </div>
+						  <div class="form-group">
+							<label for="fecha-nacimiento">Fecha de nacimiento:</label>
+							<input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="input-small" required>
+						  </div>
+						</div>
+					  <div class="form-group">
+						<label for="tipo-doc">Grupo sanguineo:</label>
+						<select id="grupo" name="grupo" class="input-mode" required>
+						  <option value="A">Grupo A</option>
+						  <option value="B">Grupo B</option>
+						  <option value="AB">Grupo AB</option>
+						  <option value="O">Grupo O</option>
+						</select>
+					  </div>
+					  <div class="form-group">
+						<label for="tipo-doc">Tipo de RH:</label>
+						<select id="rh" name="rh" class="input-mode" required>
+						  <option value="pos">RH positivo</option>
+						  <option value="neg">RH negativo</option>
+						</select>
+					  </div>
+					  </div>
+					  <div class="input-field button">
+						<button type="submit">Registrarme</button>
+					</div>
+				</form>
+			</div>			
+		</section>
+
+		<footer class="pie-pagina">
+			<div>
+				<h1>Contactate con nostros</h1>
+				<span class="text">Si tienes alguna duda, no dudes en contactarnos</span>
+			</div>
+			<div class="image-footer"><img src="../static/img/soporte.svg" alt="" height="20%"></div>
+		</footer>
+
+		<script
+			src="https://kit.fontawesome.com/81581fb069.js"
+			crossorigin="anonymous"
+		></script>
+
+	</body>
+</html>
