@@ -1,6 +1,7 @@
 from modelo.Donante import Donante
 from modelo.Credencial import Credencial
 from controlador.ControlPerfil import *
+from modelo.Cita import Cita
 import json
 import os
 import datetime
@@ -101,6 +102,19 @@ def sedes():
 
 @app.route('/solicitud')
 def solicitud():
+    return render_template("solicitud.html")
+
+@app.route('/registrarSolicitud')
+def registrarSolicitud():
+    output = request.form.to_dict()
+    dni = output["dni"]
+    hospital = output["hospital"]
+    idDonante = buscar_donante(dni)
+    idHospital = buscar_hospital(hospital)
+    fecha_actual = datetime.date.today()
+    fecha_actual = fecha_actual.strftime("%d-%m-%y")
+    newCita = Cita(1579, fecha_actual, idDonante, idHospital, 1)
+    registrar_cita(newCita)
     return render_template("solicitud.html")
 
 @app.route('/perfil',methods=['POST', 'GET'])

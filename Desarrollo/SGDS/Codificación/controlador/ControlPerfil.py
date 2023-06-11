@@ -137,3 +137,61 @@ def registrar_donante(self, donante):
         print("Error al registrar el donante:", str(e))
 
     conn.close()
+
+def buscar_donante(dni):
+    conn = sql.connect("serializar/SGDS-VABD01.db")
+    cursor = conn.cursor()
+
+    try:
+        cursor.execute(
+            "SELECT idDonante FROM Donante WHERE dni = ?",
+            (dni),
+        )
+
+        resultado = cursor.fetchone()
+
+        if resultado:
+            id_donante = resultado[0]
+            return id_donante
+    except sql.Error as e:
+        print("Error al buscar usuario:", str(e))
+
+    return None
+
+
+def buscar_hospital(hospital):
+    conn = sql.connect("serializar/SGDS-VABD01.db")
+    cursor = conn.cursor()
+
+    try:
+        cursor.execute(
+            "SELECT idHospital FROM Hospital WHERE nombreDeHospital = ?",
+            (hospital),
+        )
+
+        resultado = cursor.fetchone()
+
+        if resultado:
+            id_hospital = resultado[0]
+            return id_hospital
+    except sql.Error as e:
+        print("Error al buscar usuario:", str(e))
+
+    return None
+
+def registrar_cita(cita):
+    conn = sql.connect("serializar/SGDS-VABD01.db")
+    cursor = conn.cursor()
+
+    try:
+        cursor.execute(
+            "INSERT INTO Cita (idCita, fecha, idDonante, idHospital, estado) VALUES (?, ?, ?, ?, ?)",
+            (cita.idCita, cita.fecha, cita.idDonante, cita.idHospital, cita.estado),
+        )
+
+        conn.commit()
+        print("Cita registrada correctamente.")
+    except sql.Error as e:
+        print("Error al registrar la cita:", str(e))
+    finally:
+        conn.close()
