@@ -1,9 +1,10 @@
 class Hospital:
-    def __init__(self, idHospital,nombreDeHospital, 
+    def __init__(self, idHospital,nombreDeHospital,descripcionHospital, 
                  direccion, telefono, estado, condiciones, 
                  beneficios, horarios,credencial):
         self.__idHospital = idHospital
         self.__nombreDeHospital = nombreDeHospital
+        self.__descripcionHospital = descripcionHospital
         self.__direccion = direccion
         self.__telefono = telefono
         self.__estado = estado
@@ -18,6 +19,13 @@ class Hospital:
 
     def get_idHospital(self):
         return self.__idHospital
+    
+    # Setter y Getter para descripcionHospital
+    def set_descripcionHospital(self, descripcionHospital):
+        self.__descripcionHospital = descripcionHospital
+
+    def get_descripcionHospital(self):
+        return self.__descripcionHospital
 
     # Setter y Getter para nombreDeHospital
     def set_nombreDeHospital(self, nombreDeHospital):
