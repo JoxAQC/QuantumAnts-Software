@@ -33,7 +33,7 @@ persona2 = Donante(2, "Raul", "12-15-12", "7674321", "98765444", "Los Jiros", be
 
 horario = Horario(1, "Lunes-Martes-Miercoles", "9am-9pm", 1)
 
-hospital1 = Hospital(1, "Loayza", "Garzas", "654-321", "Activo", "nulo", "no hay", horario, credencial3)
+hospital1 = Hospital(1, "Loayza","Buen Hospital" "Garzas", "654-321", "Activo", "nulo", "no hay", horario, credencial3)
 
 oper_beneficio.agregar_grupo_beneficios(hospital1, beneficios)
 
