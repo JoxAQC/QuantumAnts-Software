@@ -12,6 +12,7 @@ def createTableHospital():
         """CREATE TABLE Hospital(
          idHospital integer,
          nombreDeHospital text,
+         descripcionHospital text,
          direccion text,
          telefono text,
          estado integer
@@ -20,10 +21,10 @@ def createTableHospital():
     conn.commit()
     conn.close()
 
-def insertRowHospital(idHospital,nombreDeHospital,direccion,telefono,estado):
+def insertRowHospital(idHospital,nombreDeHospital,descripcionHospital,direccion,telefono,estado):
     conn = sql.connect("SGDS-VABD01.db")
     cursor = conn.cursor()
-    instruction = f"INSERT INTO Hospital VALUES ({idHospital},'{nombreDeHospital}','{direccion}','{telefono}',{estado})"
+    instruction = f"INSERT INTO Hospital VALUES ({idHospital},'{nombreDeHospital}','{descripcionHospital}','{direccion}','{telefono}',{estado})"
     cursor.execute(instruction)
     conn.commit()
     conn.close()
@@ -183,7 +184,7 @@ def limpiarTable(tabla):
     cursor = conn.cursor()
     cursor.execute(
         """
-        DELETE FROM  {}
+        DELETE FROM   {}
         """.format(tabla)
     )
     conn.commit()
@@ -198,7 +199,7 @@ if __name__ == "__main__":
     #createTableCredencial()
     #createTableDonante()
     #createTableCita()
-    #insertRowHospital(1234,"Cayetano Heredia","Jesus Maria","5051111",1)
+    #insertRowHospital(1234,"Cayetano Heredia","Buen Hospital","Jesus Maria","5051111",1)
     #insertRowCondicion(1,"Mayor de 18 años.",1234)
     #insertRowHorarioDeAtencion(1,"Nocturno","22:00-03:00",1234)
     #insertRowBeneficio(1,"Consulta Gratis Derma",1234,1,2)
@@ -209,6 +210,9 @@ if __name__ == "__main__":
     #print("BD Existente")
     #limpiarTable('Condicion')
     #limpiarTable('Credencial')
+    #limpiarTable('Cita')
     #limpiarTable('HorarioDeAtencion')
     #limpiarTable('Hospital')
+    #limpiarTable('Beneficio')
+    #limpiarTable('Donante')
     pass

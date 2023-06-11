@@ -1,5 +1,8 @@
 import sqlite3 as sql
 import os
+import tkinter as tk
+from tkinter import ttk
+
 
 class OperacionesHospital:
     def __init__(self, tamaño):
@@ -8,6 +11,7 @@ class OperacionesHospital:
     def validar_campos_llenos(self, hospital):
         if (
             hospital.get_nombreDeHospital()
+            and hospital.get_descripcionHospital()
             and hospital.get_direccion()
             and hospital.get_telefono()
             and hospital.get_estado()
@@ -25,8 +29,8 @@ class OperacionesHospital:
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect(db_path)
         cursor = conn.cursor()
-        instruction = "INSERT INTO Hospital VALUES (?, ?, ?, ?, ?)"
-        cursor.execute(instruction, (hospital.get_idHospital(), hospital.get_nombreDeHospital(), hospital.get_direccion(), hospital.get_telefono(), hospital.get_estado()))
+        instruction = "INSERT INTO Hospital VALUES (?, ?, ? , ?, ?, ?)"
+        cursor.execute(instruction, (hospital.get_idHospital(), hospital.get_nombreDeHospital(),hospital.get_descripcionHospital(), hospital.get_direccion(), hospital.get_telefono(), hospital.get_estado()))
             
         for condicion in hospital.get_condiciones():
             id_condicion = condicion.get_idCondicion()
@@ -57,11 +61,12 @@ class OperacionesHospital:
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect(db_path)
         cursor = conn.cursor()
-        instruction = "UPDATE Hospital SET nombreDeHospital = ?, direccion = ?, telefono = ?, estado = ? WHERE idHospital = ?"
+        instruction = "UPDATE Hospital SET nombreDeHospital = ?,descripcionHospital = ? ,direccion = ?, telefono = ?, estado = ? WHERE idHospital = ?"
         cursor.execute(
             instruction,
             (
                 hospital.get_nombreDeHospital(),
+                hospital.get_descripcionHospital(),
                 hospital.get_direccion(),
                 hospital.get_telefono(),
                 hospital.get_estado(),
@@ -117,7 +122,7 @@ class OperacionesHospital:
         conn.commit()
         conn.close()
 
-    def ver_hospitales_bd(self):
+    def ver_hospitales_bd():
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect(db_path)
@@ -133,3 +138,40 @@ class OperacionesHospital:
 
     def get_tamaño(self):
         return self.__tamaño
+    
+if __name__ == "__main__":
+    # Crear la ventana principal
+    ventana = tk.Tk()
+    ventana.title("Programa SGDS - Hospitales")
+
+    # Obtener los resultados de la base de datos
+    resultados = OperacionesHospital.ver_hospitales_bd()
+
+    # Crear la tabla
+    tabla = ttk.Treeview(ventana)
+
+    # Configurar los encabezados de columna
+    tabla["columns"] = ("IDHospital", "NombreHospital","descripcionHospital" "Direccion", "Contacto", "Estado")
+    tabla.heading("IDHospital", text="IDHospital")
+    tabla.heading("NombreHospital", text="NombreHospital")
+    tabla.heading("descripcionHospital", text="descripcionHospital")
+    tabla.heading("Direccion", text="Direccion")
+    tabla.heading("Contacto", text="Contacto")
+    tabla.heading("Estado", text="Estado")
+
+    # Alinear el texto al centro de cada columna
+    tabla.column("IDHospital", anchor="center")
+    tabla.column("NombreHospital", anchor="center")
+    tabla.column("Direccion", anchor="center")
+    tabla.column("Contacto", anchor="center")
+    tabla.column("Estado", anchor="center")
+    tabla.column("descripcionHospital", anchor="center")
+    # Agregar los resultados a la tabla
+    for resultado in resultados:
+        tabla.insert("", "end", values=resultado)
+
+    # Empacar la tabla
+    tabla.pack()
+
+    # Ejecutar la interfaz
+    ventana.mainloop()
