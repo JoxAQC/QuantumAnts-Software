@@ -1,7 +1,7 @@
 import sqlite3 as sql
 import os
 import random
-
+from Credencial import Credencial
 
 class OperacionCredencial:
     def __init__(self) -> None:
@@ -86,3 +86,9 @@ class OperacionCredencial:
         result = cursor.fetchall()
         conn.close()
         return result
+    
+credencial1 = Credencial(1, "12-12-12", "12-12-17", "Activo", "Donante","el miau", "lamala")
+
+# Agregar Credenciales
+oper_credencial = OperacionCredencial()
+oper_credencial.registrar_credencial(credencial1)
