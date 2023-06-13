@@ -199,7 +199,7 @@ if __name__ == "__main__":
     #createTableCredencial()
     #createTableDonante()
     #createTableCita()
-    #insertRowHospital(1234,"Cayetano Heredia","Buen Hospital","Jesus Maria","5051111",1)
+    #insertRowHospital(666,"Cayetano Heredia","Buen Hospital","Jesus Maria","5051111",1)
     #insertRowCondicion(1,"Mayor de 18 años.",1234)
     #insertRowHorarioDeAtencion(1,"Nocturno","22:00-03:00",1234)
     #insertRowBeneficio(1,"Consulta Gratis Derma",1234,1,2)

@@ -87,7 +87,8 @@ class OperacionCredencial:
         conn.close()
         return result
     
-credencial1 = Credencial(1, "12-12-12", "12-12-17", "Activo", "Donante","el miau", "lamala")
+
+credencial1 = Credencial(505111, "12-12-12", "12-12-17", "Activo", "Donante","el miau", "lamala")
 
 # Agregar Credenciales
 oper_credencial = OperacionCredencial()
