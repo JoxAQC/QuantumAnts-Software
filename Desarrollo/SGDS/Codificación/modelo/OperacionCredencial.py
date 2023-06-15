@@ -12,13 +12,8 @@ class OperacionCredencial:
         id_credencial = random.randint(1000000, 9999999)
         return id_credencial
     
-    def registrar_credencial(self, credencial):
-        # Obtener la ruta absoluta del directorio actual
-        current_dir = os.path.abspath("")
-        # Construir la ruta absoluta del archivo de la base de datos
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        # Establecer la conexión a la base de datos
-        conn = sql.connect(db_path)
+    def registrar_credencial(credencial):
+        conn = sql.connect("SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "INSERT INTO Credencial VALUES (?, ?, ?, ?, ?, ?, ?)"
         cursor.execute(instruction, (
@@ -34,12 +29,7 @@ class OperacionCredencial:
         conn.close()
 
     def modificar_credencial(self, id_credencial, nuevo_estado):
-        # Obtener la ruta absoluta del directorio actual
-        current_dir = os.path.abspath("")
-        # Construir la ruta absoluta del archivo de la base de datos
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        # Establecer la conexión a la base de datos
-        conn = sql.connect(db_path)
+        conn = sql.connect("SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "UPDATE Credencial SET estado = ? WHERE idCredencial = ?"
         cursor.execute(instruction, (nuevo_estado, id_credencial))
@@ -47,12 +37,7 @@ class OperacionCredencial:
         conn.close()
 
     def buscar_credencial(self, id_credencial):
-        # Obtener la ruta absoluta del directorio actual
-        current_dir = os.path.abspath("")
-        # Construir la ruta absoluta del archivo de la base de datos
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        # Establecer la conexión a la base de datos
-        conn = sql.connect(db_path)
+        conn = sql.connect("SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "SELECT * FROM Credencial WHERE idCredencial = ?"
         cursor.execute(instruction, (id_credencial,))
@@ -61,12 +46,7 @@ class OperacionCredencial:
         return result
 
     def eliminar_credencial(self, id_credencial):
-        # Obtener la ruta absoluta del directorio actual
-        current_dir = os.path.abspath("")
-        # Construir la ruta absoluta del archivo de la base de datos
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        # Establecer la conexión a la base de datos
-        conn = sql.connect(db_path)
+        conn = sql.connect("SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "DELETE FROM Credencial WHERE idCredencial = ?"
         cursor.execute(instruction, (id_credencial,))
@@ -74,12 +54,7 @@ class OperacionCredencial:
         conn.close()
 
     def mostrar_todas_credenciales(self):
-        # Obtener la ruta absoluta del directorio actual
-        current_dir = os.path.abspath("")
-        # Construir la ruta absoluta del archivo de la base de datos
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        # Establecer la conexión a la base de datos
-        conn = sql.connect(db_path)
+        conn = sql.connect("SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "SELECT * FROM Credencial"
         cursor.execute(instruction)
