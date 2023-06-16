@@ -6,8 +6,6 @@ class OperacionCita:
         pass
     
     def confirmarCita(self, cita):
-        current_dir = os.path.abspath("")
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
@@ -23,8 +21,6 @@ class OperacionCita:
             return False
     
     def finalizarCita(self, cita):
-        current_dir = os.path.abspath("")
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
@@ -35,8 +31,6 @@ class OperacionCita:
         conn.close()
     
     def programarCita(self, donante, horario):
-        current_dir = os.path.abspath("")
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
@@ -61,8 +55,6 @@ class OperacionCita:
         return True  # La cita se programó correctamente
 
     def reprogramarCita(self, cita, fecha_nueva):
-        current_dir = os.path.abspath("")
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 

@@ -2,11 +2,6 @@ import sqlite3 as sql
 import os
 
 def conectar_bd():  
-    # Obtener la ruta absoluta al archivo de base de datos
-    current_directory = os.path.dirname(os.path.abspath(__file__))
-    db_path = os.path.join(current_directory, "..", "modelo", "SGDS-VABD01.db")
-
-    # Establecer conexión con la base de datos
     conn = sql.connect("modelo/SGDS-VABD01.db")
     return conn
 
@@ -83,11 +78,6 @@ def usuarioBeneficios(nombre):
     return None
 
 def registrar_credencial(credencial):
-    # Obtener la ruta absoluta del directorio actual
-    current_dir = os.path.abspath("")
-    # Construir la ruta absoluta del archivo de la base de datos
-    db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-    # Establecer la conexión a la base de datos
     conn = sql.connect("modelo/SGDS-VABD01.db")
     cursor = conn.cursor()
     instruction = "INSERT INTO Credencial VALUES (?, ?, ?, ?, ?, ?, ?)"
@@ -104,11 +94,6 @@ def registrar_credencial(credencial):
     conn.close()
 
 def registrar_donante(donante):
-    # Obtener la ruta absoluta del directorio actual
-    current_dir = os.path.abspath("")
-    # Construir la ruta absoluta del archivo de la base de datos
-    db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-    # Establecer la conexión a la base de datos
     conn = sql.connect("modelo/SGDS-VABD01.db")
     cursor = conn.cursor()
 

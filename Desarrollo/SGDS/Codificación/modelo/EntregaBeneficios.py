@@ -6,11 +6,6 @@ Beneficios = ["Consulta gratis Psicologia","Consulta gratis dentista","Consulta 
               ,"Consulta gratis Medicina General"]
 
 def conectar_bd():  
-        # Obtener la ruta absoluta al archivo de base de datos
-        current_directory = os.path.dirname(os.path.abspath(__file__))
-        db_path = os.path.join(current_directory, "..", "serializar", "SGDS-VABD01.db")
-
-        # Establecer conexión con la base de datos
         conn = sql.connect("modelo/SGDS-VABD01.db")
         return conn
 

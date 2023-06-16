@@ -116,8 +116,6 @@ class OperacionBeneficio:
         conn.close()
 
     def validarBeneficio(self,beneficio):
-        current_dir = os.path.abspath("")
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 

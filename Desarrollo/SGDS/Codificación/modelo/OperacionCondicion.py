@@ -6,8 +6,6 @@ class OperacionCondicion:
         pass
 
     def agregarCondicion(self,condicion):
-        current_dir = os.path.abspath("")
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
@@ -19,8 +17,6 @@ class OperacionCondicion:
         return True  # La condición se agregó correctamente
     
     def eliminarCondicion(self,condicion):
-        current_dir = os.path.abspath("")
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 

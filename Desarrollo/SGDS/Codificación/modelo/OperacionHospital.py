@@ -25,8 +25,6 @@ class OperacionesHospital:
         return False
     
     def agregar_hospital_bd(self, hospital):
-        current_dir = os.path.abspath("")
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "INSERT INTO Hospital VALUES (?, ?, ? , ?, ?, ?)"
@@ -57,8 +55,6 @@ class OperacionesHospital:
         conn.close()
 
     def modificar_hospital_bd(self, hospital):
-        current_dir = os.path.abspath("")
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "UPDATE Hospital SET nombreDeHospital = ?,descripcionHospital = ? ,direccion = ?, telefono = ?, estado = ? WHERE idHospital = ?"
@@ -102,8 +98,6 @@ class OperacionesHospital:
         conn.close()
 
     def buscar_hospital_bd(self, id_hospital):
-        current_dir = os.path.abspath("")
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "SELECT * FROM Hospital WHERE idHospital = ?"
@@ -113,8 +107,6 @@ class OperacionesHospital:
         return result
 
     def eliminar_hospital_bd(self, id_hospital):
-        current_dir = os.path.abspath("")
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "DELETE FROM Hospital WHERE idHospital = ?"
@@ -123,8 +115,6 @@ class OperacionesHospital:
         conn.close()
 
     def ver_hospitales_bd():
-        current_dir = os.path.abspath("")
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM Hospital")
@@ -139,39 +129,3 @@ class OperacionesHospital:
     def get_tamaño(self):
         return self.__tamaño
     
-if __name__ == "__main__":
-    # Crear la ventana principal
-    ventana = tk.Tk()
-    ventana.title("Programa SGDS - Hospitales")
-
-    # Obtener los resultados de la base de datos
-    resultados = OperacionesHospital.ver_hospitales_bd()
-
-    # Crear la tabla
-    tabla = ttk.Treeview(ventana)
-
-    # Configurar los encabezados de columna
-    tabla["columns"] = ("IDHospital", "NombreHospital","descripcionHospital" "Direccion", "Contacto", "Estado")
-    tabla.heading("IDHospital", text="IDHospital")
-    tabla.heading("NombreHospital", text="NombreHospital")
-    tabla.heading("descripcionHospital", text="descripcionHospital")
-    tabla.heading("Direccion", text="Direccion")
-    tabla.heading("Contacto", text="Contacto")
-    tabla.heading("Estado", text="Estado")
-
-    # Alinear el texto al centro de cada columna
-    tabla.column("IDHospital", anchor="center")
-    tabla.column("NombreHospital", anchor="center")
-    tabla.column("Direccion", anchor="center")
-    tabla.column("Contacto", anchor="center")
-    tabla.column("Estado", anchor="center")
-    tabla.column("descripcionHospital", anchor="center")
-    # Agregar los resultados a la tabla
-    for resultado in resultados:
-        tabla.insert("", "end", values=resultado)
-
-    # Empacar la tabla
-    tabla.pack()
-
-    # Ejecutar la interfaz
-    ventana.mainloop()
