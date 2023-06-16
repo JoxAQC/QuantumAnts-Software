@@ -51,91 +51,92 @@
 			</div>
 		</header>
 
+
+		<section class="section1">
+		<div class="contenido5">
+			<img src="static/img/foto_perfil.jpg" alt="Imagen de perfil" class="perfil-img">
+			<h2>Datos personales</h2>
+			<form action="/perfil1" method="post">
+				<div class="datos-personales">
+					<div class="form-group">
+						<label for="nombre">Nombre:</label>
+						<input type="text" id="nombre" name="nombre" class="input-large" value="{{ nombre }}" required>
+					</div>
+					<div class="form-group">
+						<label for="dni">DNI:</label>
+						<input type="text" id="dni" name="dni" class="input-small" value="{{ dni }}" required>
+					</div>
+					<div class="form-group">
+						<label for="telefono">Teléfono:</label>
+						<input type="tel" id="telefono" name="telefono" class="input-small" value="{{ telefono }}" required>
+					</div>
+					<div class="form-group">
+						<label for="direccion">Dirección:</label>
+						<input type="text" id="direccion" name="direccion" class="input-small" value="{{ direccion }}" required>
+					</div>
+					<div class="form-group">
+						<label for="fecha-nacimiento">Fecha de nacimiento:</label>
+						<input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="input-small" value="{{ Fecha }}" required>
+					</div>
+				</div>
+			</form>
+		</div>
+		</section>
+
+
+		<section class="section2">
+			<h1 class="titulo2">Historial de donaciones</h1>
+			<hr class="separador2">
+			<form action="/perfil2" method="post">
+				<div class="fila2">
+					<div class="columna2">Descripción</div>
+					<div class="columna2">Detalles</div>
+				</div>
+			
+				{% if donacion %}
+					<div class="fila2">
+						<div class="columna2">{{ donacion }}</div>
+						<div class="columna2"><button class="boton2">Saber más</button></div>
+					</div>
+				{% else %}
+					<div class="fila2">
+						<div class="columna2"> No registra donaciones </div>
+						<div class="columna2"><button class="boton2">Saber más</button></div>
+					</div>
+				{% endif %}
+			</form>
+		</section>
+		
+
+		<section class="section3">
+			<h1 class="titulo3">Beneficios recibidos</h1>
+			<form action="/perfil3" method="post">		
+				<div class="fila3">
+					<div class="cuadro3">
+					<img class="imagen3" src="static/img/beneficio1.jpg" alt="Imagen 1">
+					<div class="texto3">
+						<p>{{beneficio}}</p>
+						<button class="boton3">Detalles</button>
+					</div>
+					</div>
+					<div class="cuadro3">
+					<img class="imagen3" src="static/img/beneficio2.jpg" alt="Imagen 2">
+					<div class="texto3">
+						<p>{{beneficio}}</p>
+						<button class="boton3">Detalles</button>
+					</div>
+					</div>
+					<div class="cuadro3">
+					<img class="imagen3" src="static/img/beneficio3.jpg" alt="Imagen 3">
+					<div class="texto3">
+						<p>{{beneficio}}</p>
+						<button class="boton3">Detalles</button>
+					</div>
+					</div>
+				</div>
+			</form>	
+		</section>
 	
-<section class="section1">
-  <div class="contenido5">
-    <img src="img/foto_perfil.jpg" alt="Imagen de perfil" class="perfil-img">
-    <h2>Datos personales</h2>
-    <div class="datos-personales">
-      <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" class="input-large" required>
-      </div>
-      <div class="form-group">
-        <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni" class="input-small" required>
-      </div>
-      <div class="form-group">
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" class="input-small" required>
-      </div>
-      <div class="form-group">
-        <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion" class="input-small" required>
-      </div>
-      <div class="form-group">
-        <label for="fecha-nacimiento">Fecha de nacimiento:</label>
-        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="input-small" required>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section2">
-  <h1 class="titulo2">Historial de donaciones</h1>
-  <hr class="separador2">
-  <div class="fila2">
-    <div class="columna2">Hospital</div>
-    <div class="columna2">Fecha</div>
-    <div class="columna2">Detalles</div>
-  </div>
-  <div class="fila2">
-    <div class="columna2">Nombre del hospital 1</div>
-    <div class="columna2"><input type="date" id="fecha" name="fecha" class="input-small" required></div>
-    <div class="columna2"><button class="boton2">Saber más</button></div>
-  </div>
-  <div class="fila2">
-    <div class="columna2">Nombre del hospital 2</div>
-    <div class="columna2"><input type="date" id="fecha" name="fecha" class="input-small" required></div>
-    <div class="columna2"><button class="boton2">Saber más</button></div>
-  </div>
-   <div class="fila2">
-    <div class="columna2">Nombre del hospital 3</div>
-    <div class="columna2"><input type="date" id="fecha" name="fecha" class="input-small" required></div>
-    <div class="columna2"><button class="boton2">Saber más</button></div>
-  </div>
-</section>
-
-
-<section class="section3">
-  <h1 class="titulo3">Beneficios recibidos</h1>
-  <div class="fila3">
-    <div class="cuadro3">
-      <img class="imagen3" src="img/beneficio1.jpg" alt="Imagen 1">
-      <div class="texto3">
-        <p>Texto del beneficio 1</p>
-        <button class="boton3">Detalles</button>
-      </div>
-    </div>
-    <div class="cuadro3">
-      <img class="imagen3" src="img/beneficio2.jpg" alt="Imagen 2">
-      <div class="texto3">
-        <p>Texto del beneficio 2</p>
-        <button class="boton3">Detalles</button>
-      </div>
-    </div>
-    <div class="cuadro3">
-      <img class="imagen3" src="img/beneficio3.jpg" alt="Imagen 3">
-      <div class="texto3">
-        <p>Texto del beneficio 3</p>
-        <button class="boton3">Detalles</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 
 		<footer class="footer">
 			<div class="container container-footer">
