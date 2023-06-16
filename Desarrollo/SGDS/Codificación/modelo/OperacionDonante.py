@@ -5,13 +5,8 @@ class OperacionDonante:
     def __init__(self):
         pass
     
-    def registrar_donante(self, donante):
-        # Obtener la ruta absoluta del directorio actual
-        current_dir = os.path.abspath("")
-        # Construir la ruta absoluta del archivo de la base de datos
-        db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        # Establecer la conexión a la base de datos
-        conn = sql.connect(db_path)
+    def registrar_donante(donante):
+        conn = sql.connect("SGDS-VABD01.db")
         cursor = conn.cursor()
 
         try:

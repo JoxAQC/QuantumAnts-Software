@@ -1,13 +1,11 @@
 import sqlite3 as sql
 import os
+from modelo.Credencial import Credencial
+
 
 def conectar_bd():  
-    # Obtener la ruta absoluta al archivo de base de datos
-    current_directory = os.path.dirname(os.path.abspath(__file__))
-    db_path = os.path.join(current_directory, "..", "modelo", "SGDS-VABD01.db")
-
     # Establecer conexión con la base de datos
-    conn = sql.connect(db_path)
+    conn = sql.connect("SGDS-VABD01.db")
     return conn
 
 def buscar_usuario(user, password):
@@ -47,7 +45,7 @@ def usuarioDatos(nombre):
     return None
 
 def usuarioDonaciones(nombre):
-    conn = sql.connect("serializar/SGDS-VABD01.db")    
+    conn = sql.connect("modelo/SGDS-VABD01.db")    
     cursor = conn.cursor()
 
     try:
@@ -83,15 +81,10 @@ def usuarioBeneficios(nombre):
     return None
 
 def registrar_credencial(credencial):
-    # Obtener la ruta absoluta del directorio actual
-    current_dir = os.path.abspath("")
-    # Construir la ruta absoluta del archivo de la base de datos
-    db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-    # Establecer la conexión a la base de datos
-    conn = sql.connect(db_path)
+    conn = conectar_bd()
     cursor = conn.cursor()
-    instruction = "INSERT INTO Credencial VALUES (?, ?, ?, ?, ?, ?, ?)"
-    cursor.execute(instruction, (
+    instruccion = "INSERT INTO Credencial VALUES (?, ?, ?, ?, ?, ?, ?)"
+    cursor.execute(instruccion, (
         credencial.get_idCredencial(),
         credencial.get_fechaDeCreacion(),
         credencial.get_fechaDeExpiracion(),
@@ -103,19 +96,15 @@ def registrar_credencial(credencial):
     conn.commit()
     conn.close()
 
+
 def registrar_donante(donante):
-    # Obtener la ruta absoluta del directorio actual
-    current_dir = os.path.abspath("")
-    # Construir la ruta absoluta del archivo de la base de datos
-    db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-    # Establecer la conexión a la base de datos
-    conn = sql.connect(db_path)
+    conn = conectar_bd()
     cursor = conn.cursor()
 
     try:
-        instruction = "INSERT INTO Donante VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        instruccion = "INSERT INTO Donante VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         cursor.execute(
-            instruction,
+            instruccion,
             (
                 donante.get_id_donante(),
                 donante.get_nombre(),
@@ -137,6 +126,7 @@ def registrar_donante(donante):
         print("Error al registrar el donante:", str(e))
 
     conn.close()
+
 
 def buscar_donante(dni):
     conn = sql.connect("modelo/SGDS-VABD01.db")
@@ -180,7 +170,7 @@ def buscar_hospital(hospital):
     return None
 
 def registrar_cita(cita):
-    conn = sql.connect("serializar/SGDS-VABD01.db")
+    conn = conectar_bd()
     cursor = conn.cursor()
 
     try:
@@ -190,8 +180,8 @@ def registrar_cita(cita):
         )
 
         conn.commit()
-        print("Cita registrada correctamente.")
+        print("Cita registrada exitosamente.")
     except sql.Error as e:
         print("Error al registrar la cita:", str(e))
-    finally:
-        conn.close()
+
+    conn.close()
