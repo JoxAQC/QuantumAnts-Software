@@ -11,7 +11,7 @@ def conectar_bd():
         db_path = os.path.join(current_directory, "..", "serializar", "SGDS-VABD01.db")
 
         # Establecer conexión con la base de datos
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         return conn
 
 

@@ -27,7 +27,7 @@ class OperacionesHospital:
     def agregar_hospital_bd(self, hospital):
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "INSERT INTO Hospital VALUES (?, ?, ? , ?, ?, ?)"
         cursor.execute(instruction, (hospital.get_idHospital(), hospital.get_nombreDeHospital(),hospital.get_descripcionHospital(), hospital.get_direccion(), hospital.get_telefono(), hospital.get_estado()))
@@ -59,7 +59,7 @@ class OperacionesHospital:
     def modificar_hospital_bd(self, hospital):
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "UPDATE Hospital SET nombreDeHospital = ?,descripcionHospital = ? ,direccion = ?, telefono = ?, estado = ? WHERE idHospital = ?"
         cursor.execute(
@@ -104,7 +104,7 @@ class OperacionesHospital:
     def buscar_hospital_bd(self, id_hospital):
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "SELECT * FROM Hospital WHERE idHospital = ?"
         cursor.execute(instruction, (id_hospital,))
@@ -115,7 +115,7 @@ class OperacionesHospital:
     def eliminar_hospital_bd(self, id_hospital):
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "DELETE FROM Hospital WHERE idHospital = ?"
         cursor.execute(instruction, (id_hospital,))
@@ -125,7 +125,7 @@ class OperacionesHospital:
     def ver_hospitales_bd():
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM Hospital")
         results = cursor.fetchall()

@@ -8,7 +8,7 @@ class OperacionCondicion:
     def agregarCondicion(self,condicion):
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         instruction = "INSERT INTO Condicion (idCondicion, descripcion, idHospital) VALUES (?, ?, ?)"
@@ -21,7 +21,7 @@ class OperacionCondicion:
     def eliminarCondicion(self,condicion):
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         instruction = "DELETE FROM Condicion WHERE idCondicion = ?"

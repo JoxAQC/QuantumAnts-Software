@@ -9,7 +9,7 @@ class Sistema:
     @staticmethod
     def conectar_bd():  
         # Establecer conexión con la base de datos
-        conn = sql.connect("SGDS-VABD01.db")
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         return conn
 
     # Getter y Setter para estado

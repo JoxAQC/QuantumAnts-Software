@@ -8,7 +8,7 @@ class OperacionCita:
     def confirmarCita(self, cita):
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         instruction = "SELECT COUNT(*) FROM Cita WHERE idCita = ?"
@@ -25,7 +25,7 @@ class OperacionCita:
     def finalizarCita(self, cita):
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         instruction = "DELETE FROM Cita WHERE idCita = ?"
@@ -37,7 +37,7 @@ class OperacionCita:
     def programarCita(self, donante, horario):
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         id_donante = donante.get_id_Donante()
@@ -63,7 +63,7 @@ class OperacionCita:
     def reprogramarCita(self, cita, fecha_nueva):
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         id_cita = cita.get_idCita()
@@ -75,7 +75,7 @@ class OperacionCita:
         conn.close() 
         
     def verCitas(self, donante, sistema):
-        conn = sistema.conectar_bd()
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         try:

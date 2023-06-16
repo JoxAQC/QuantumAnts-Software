@@ -7,7 +7,7 @@ def conectar_bd():
     db_path = os.path.join(current_directory, "..", "modelo", "SGDS-VABD01.db")
 
     # Establecer conexión con la base de datos
-    conn = sql.connect(db_path)
+    conn = sql.connect("modelo/SGDS-VABD01.db")
     return conn
 
 def buscar_usuario(user, password):
@@ -47,7 +47,7 @@ def usuarioDatos(nombre):
     return None
 
 def usuarioDonaciones(nombre):
-    conn = sql.connect("serializar/SGDS-VABD01.db")    
+    conn = sql.connect("modelo/SGDS-VABD01.db")    
     cursor = conn.cursor()
 
     try:
@@ -88,7 +88,7 @@ def registrar_credencial(credencial):
     # Construir la ruta absoluta del archivo de la base de datos
     db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
     # Establecer la conexión a la base de datos
-    conn = sql.connect(db_path)
+    conn = sql.connect("modelo/SGDS-VABD01.db")
     cursor = conn.cursor()
     instruction = "INSERT INTO Credencial VALUES (?, ?, ?, ?, ?, ?, ?)"
     cursor.execute(instruction, (
@@ -109,7 +109,7 @@ def registrar_donante(donante):
     # Construir la ruta absoluta del archivo de la base de datos
     db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
     # Establecer la conexión a la base de datos
-    conn = sql.connect(db_path)
+    conn = sql.connect("modelo/SGDS-VABD01.db")
     cursor = conn.cursor()
 
     try:
@@ -180,7 +180,7 @@ def buscar_hospital(hospital):
     return None
 
 def registrar_cita(cita):
-    conn = sql.connect("serializar/SGDS-VABD01.db")
+    conn = sql.connect("modelo/SGDS-VABD01.db")
     cursor = conn.cursor()
 
     try:

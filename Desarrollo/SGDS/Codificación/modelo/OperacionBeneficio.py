@@ -6,7 +6,7 @@ class OperacionBeneficio:
         pass
     
     def ver_beneficios_obtenidos(self, donante):
-        conn = donante.conectar_bd()
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         try:
@@ -27,7 +27,7 @@ class OperacionBeneficio:
         conn.close()
 
     def agregar_grupo_beneficios(self, hospital, grupo_beneficios):
-        conn = hospital.conectar_bd()
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         try:
@@ -45,7 +45,7 @@ class OperacionBeneficio:
         conn.close()
 
     def eliminar_beneficio(self, hospital, beneficio_id):
-        conn = hospital.conectar_bd()
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         try:
@@ -59,7 +59,7 @@ class OperacionBeneficio:
         conn.close()
 
     def modificar_beneficio(self, hospital, beneficio_id, nueva_descripcion):
-        conn = hospital.conectar_bd()
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         try:
@@ -76,7 +76,7 @@ class OperacionBeneficio:
         conn.close()
 
     def buscar_beneficios(self, hospital, descripcion):
-        conn = hospital.conectar_bd()
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         try:
@@ -95,7 +95,7 @@ class OperacionBeneficio:
         return []
 
     def ver_beneficios_hospital(self, hospital):
-        conn = hospital.conectar_bd()
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         try:
@@ -118,7 +118,7 @@ class OperacionBeneficio:
     def validarBeneficio(self,beneficio):
         current_dir = os.path.abspath("")
         db_path = os.path.join(current_dir, "..", "serializar", "SGDS-VABD01.db")
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         # Obtener el beneficio correspondiente al idBeneficio proporcionado

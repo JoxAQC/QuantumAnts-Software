@@ -13,7 +13,7 @@ class OperacionCredencial:
         return id_credencial
     
     def registrar_credencial(credencial):
-        conn = sql.connect("SGDS-VABD01.db")
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "INSERT INTO Credencial VALUES (?, ?, ?, ?, ?, ?, ?)"
         cursor.execute(instruction, (
@@ -29,7 +29,7 @@ class OperacionCredencial:
         conn.close()
 
     def modificar_credencial(self, id_credencial, nuevo_estado):
-        conn = sql.connect("SGDS-VABD01.db")
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "UPDATE Credencial SET estado = ? WHERE idCredencial = ?"
         cursor.execute(instruction, (nuevo_estado, id_credencial))
@@ -37,7 +37,7 @@ class OperacionCredencial:
         conn.close()
 
     def buscar_credencial(self, id_credencial):
-        conn = sql.connect("SGDS-VABD01.db")
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "SELECT * FROM Credencial WHERE idCredencial = ?"
         cursor.execute(instruction, (id_credencial,))
@@ -46,7 +46,7 @@ class OperacionCredencial:
         return result
 
     def eliminar_credencial(self, id_credencial):
-        conn = sql.connect("SGDS-VABD01.db")
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "DELETE FROM Credencial WHERE idCredencial = ?"
         cursor.execute(instruction, (id_credencial,))
@@ -54,7 +54,7 @@ class OperacionCredencial:
         conn.close()
 
     def mostrar_todas_credenciales(self):
-        conn = sql.connect("SGDS-VABD01.db")
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "SELECT * FROM Credencial"
         cursor.execute(instruction)
