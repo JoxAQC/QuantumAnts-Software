@@ -1,12 +1,17 @@
 import sqlite3 as sql
 import os
+from modelo.Sistema import Sistema
+
+
 
 class OperacionDonante:
     def __init__(self):
         pass
     
+    syst = Sistema("Activo")
+    
     def registrar_donante(donante):
-        conn = sql.connect("SGDS-VABD01.db")
+        conn = Sistema.conectar_bd()
         cursor = conn.cursor()
 
         try:
