@@ -11,7 +11,7 @@ class OperacionDonante:
     syst = Sistema("Activo")
     
     def registrar_donante(donante):
-        conn = Sistema.conectar_bd()
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         try:
@@ -41,7 +41,7 @@ class OperacionDonante:
         conn.close()
 
     def buscar_donantes(self, donante, sistema):
-        conn = sistema.conectar_bd()
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         try:
@@ -60,7 +60,7 @@ class OperacionDonante:
         return []
 
     def cambiar_datos(self, donante, sistema):
-        conn = sistema.conectar_bd()
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         try:
             cursor.execute(
@@ -84,7 +84,7 @@ class OperacionDonante:
         conn.close()
 
     def eliminar_donante(self, donante, sistema):
-        conn = sistema.conectar_bd()
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         try:
@@ -98,7 +98,7 @@ class OperacionDonante:
         conn.close()
 
     def ver_donantes(self, sistema):
-        conn = sistema.conectar_bd()
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
 
         try:
