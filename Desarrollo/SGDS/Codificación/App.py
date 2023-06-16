@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-#from modelo.SGDS_IVR08 import *
-=======
 from modelo.Donante import Donante
 from modelo.OperacionDonante import OperacionDonante
 from modelo.OperacionCredencial import OperacionCredencial
@@ -9,7 +5,6 @@ from modelo.Credencial import Credencial
 from modelo.Sistema import Sistema
 from controlador.ControlPerfil import *
 from modelo.Cita import Cita
->>>>>>> 4ec203e65b36c3d8e676f25f6e3acfaae8ae3f39
 import json
 import os
 import sqlite3 as sql
