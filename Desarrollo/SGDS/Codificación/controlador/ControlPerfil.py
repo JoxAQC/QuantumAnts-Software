@@ -1,12 +1,15 @@
 import sqlite3 as sql
 import os
+from modelo.Sistema import Sistema
 
 def conectar_bd():  
     conn = sql.connect("modelo/SGDS-VABD01.db")
     return conn
 
+syst = Sistema("Activo")
+
 def buscar_usuario(user, password):
-    conn = sql.connect("modelo/SGDS-VABD01.db")
+    conn = syst.conectar_bd()
     cursor = conn.cursor()
 
     try:
