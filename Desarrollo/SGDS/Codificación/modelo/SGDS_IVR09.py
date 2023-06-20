@@ -1,9 +1,12 @@
-from SGDS_IVR01 import Hospital
-from Credenciales import Credencial
-from Condiciones import Condiciones
-from Beneficios import Beneficios
-from Horarios import Horarios
-from SGDS_IVR03  import Cita
+from modelo.Hospital import Hospital
+from modelo.Donante import Donante
+from modelo.OperacionDonante import OperacionDonante
+from modelo.OperacionHospital import OperacionesHospital
+from modelo.OperacionBeneficio import OperacionBeneficio
+from modelo.OperacionCredencial import OperacionCredencial
+from modelo.Credencial import Credencial
+from modelo.Horario import Horario
+from modelo.Beneficio import Beneficio
 import sqlite3 as sql
 import os
 import json
