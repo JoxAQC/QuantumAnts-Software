@@ -24,6 +24,9 @@ class OperacionesHospital:
                 return True
         return False
     
+    def hola():
+        print("Hola")
+
     def agregar_hospital_bd(self, hospital):
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
