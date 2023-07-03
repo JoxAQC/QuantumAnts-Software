@@ -1,7 +1,9 @@
 import sqlite3 as sql
 import os
 from modelo.Credencial import Credencial
-
+from modelo.OperacionDonante import OperacionDonante
+from modelo.OperacionCredencial import OperacionCredencial
+from modelo.OperacionCita import OperacionCita
 
 def conectar_bd():  
     # Establecer conexión con la base de datos
