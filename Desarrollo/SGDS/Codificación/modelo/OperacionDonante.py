@@ -1,6 +1,6 @@
 import sqlite3 as sql
 import os
-from modelo.Sistema import Sistema
+from Sistema import Sistema
 
 
 
@@ -83,19 +83,16 @@ class OperacionDonante:
 
         conn.close()
 
-    def eliminar_donante(self, donante, sistema):
+    def eliminar_donante(donante):
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
-
-        try:
-            cursor.execute("DELETE FROM Donante WHERE idDonante = ?", (donante.get_id_donante(),))
-
-            conn.commit()
-            print("Donante eliminado exitosamente.")
-        except sql.Error as e:
-            print("Error al eliminar el donante:", str(e))
-
+        instruction = "DELETE FROM Donante where idDonante= ?"
+        cursor.execute(instruction, (
+            donante.get_id_donante(),
+        ))
+        conn.commit()
         conn.close()
+
 
     def ver_donantes(self, sistema):
         conn = sql.connect("modelo/SGDS-VABD01.db")
