@@ -369,6 +369,20 @@ input[type="date"] {
 	margin-top:20px;
 }
 
+.boton4 {
+  	text-align: center;
+	border: none;
+	background-color: #000;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 1rem 3rem;
+	border-radius: 2rem;
+	font-size: 1.4rem;
+	font-family: inherit;
+	cursor: pointer;
+	font-weight: 600;
+	margin-top:20px;
+}
 
 
 /* ********************************** */

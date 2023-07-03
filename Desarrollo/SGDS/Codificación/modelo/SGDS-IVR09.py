@@ -6,7 +6,7 @@ OperacionesHospital = getattr(modulo, "OperacionesHospital")
 from modelo.Hospital import Hospital
 from modelo.Donante import Donante
 from modelo.OperacionDonante import OperacionDonante
-from modelo.OperacionBeneficio import OperacionBeneficio
+from modelo.OperacionCondicion import OperacionCondicion
 from modelo.OperacionCredencial import OperacionCredencial
 from modelo.Credencial import Credencial
 from modelo.Horario import Horario
