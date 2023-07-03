@@ -66,7 +66,7 @@ def usuarioDatos(nombre):
 
     try:
         cursor.execute(
-            "SELECT dni, telefono, direccion, fechaNacimiento FROM Paciente WHERE nombre = ?",
+            "SELECT nombre, dni, telefono, direccion, fechaNacimiento FROM Donante WHERE idDonante = ?",
             (nombre,),
         )
 
@@ -84,7 +84,7 @@ def usuarioDonaciones(nombre):
 
     try:
         cursor.execute(
-            "SELECT ultimaDonacion FROM Paciente WHERE nombre = ?",
+            "SELECT ultimaDonacion FROM Donante WHERE nombre = ?",
             (nombre,),
         )
 
@@ -102,7 +102,7 @@ def usuarioBeneficios(nombre):
 
     try:
         cursor.execute(
-            "SELECT beneficioActivo FROM Paciente WHERE nombre = ?",
+            "SELECT beneficioActivo FROM Donante WHERE nombre = ?",
             (nombre,),
         )
 
