@@ -50,7 +50,7 @@ class OperacionCredencial:
         cursor = conn.cursor()
         instruction = "DELETE FROM Credencial where idCredencial= ?"
         cursor.execute(instruction, (
-            credencial.get_idCredencial()
+            credencial.get_idCredencial(),
         ))
         conn.commit()
         conn.close()
