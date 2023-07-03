@@ -137,6 +137,21 @@ html {
 	margin: 0 auto;
 }
 
+.contenidoForm {
+	color: #e2e2e2;
+	
+}
+
+.contenidoForm div{
+	padding: 5px;
+	
+}
+
+.contenidoForm input{
+	background-color: #f8fffe;
+	
+}
+
 /* ********************************** */
 /*               HEADER               */
 /* ********************************** */

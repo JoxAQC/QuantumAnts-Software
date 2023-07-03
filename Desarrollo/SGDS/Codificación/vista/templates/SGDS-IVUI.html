@@ -39,15 +39,27 @@
 		<section class="login">
 			<div class="form">
 				<h2>Iniciar Sesión</h2>
-				<form action="">
+				<form action="/loginin" method="POST">
 					<div class="input-field">
-						<input type="text" placeholder="Ingresa tu correo" name="correo" required />
+						<input type="text" placeholder="Ingresa tu usuario" id="usuario" name="usuario" required />
 						<i class="fa-regular fa-envelope"></i>
 					</div>
 					<div class="input-field">
-						<input type="password" placeholder="Ingresa tu contraseña" id="passwordInput" required />
+						<input type="password" placeholder="Ingresa tu contraseña" id="contraseña" name="contraseña" required />
 						<i class="uil uil-lock icon"></i>
 					</div>
+					{% if mensaje %}
+						<center>
+						<br>
+						<p style="color: rgb(245, 39, 32); font-size: 13px;" class="let_space">{{mensaje}}</p>
+						</center>
+				 	 {% endif %}
+					  {% if mensaje2 %}
+					  <center>
+					  <br>
+					  <p style="color: rgb(26, 172, 89); font-size: 13px;" class="let_space">{{mensaje}}</p>
+					  </center>
+					{% endif %}
 					<div class="checkbox-text">
 						<div class="checkbox-content">
 							<input type="checkbox" />
@@ -70,7 +82,7 @@
 				<h1>Contactate con nostros</h1>
 				<span class="text">Si tienes alguna duda, no dudes en contactarnos</span>
 			</div>
-			<div class="image-footer"><img src="./img/soporte.svg" alt="" height="20%"></div>
+			<div class="image-footer"><img src="./static/img/soporte.svg" alt="" height="20%"></div>
 		</footer>
 		
 		<script

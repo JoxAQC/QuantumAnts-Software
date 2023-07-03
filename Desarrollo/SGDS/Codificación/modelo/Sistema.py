@@ -8,12 +8,8 @@ class Sistema:
     # Base de datos
     @staticmethod
     def conectar_bd():  
-        # Obtener la ruta absoluta al archivo de base de datos
-        current_directory = os.path.abspath("")
-        db_path = os.path.join(current_directory, "..", "serializar", "SGDS-VABD01.db")
-
         # Establecer conexión con la base de datos
-        conn = sql.connect(db_path)
+        conn = sql.connect("modelo/SGDS-VABD01.db")
         return conn
 
     # Getter y Setter para estado
