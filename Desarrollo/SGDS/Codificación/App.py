@@ -121,6 +121,13 @@ def registrarSolicitud():
     registrar_cita(newCita)
     return render_template("solicitud.html")
 
+@app.route('/eliminar')
+def eliminar_perfil():
+    if eliminar_usuario():
+        return render_template("index.html")
+    else:
+        print("Error al eliminar perfil")
+
 @app.route('/perfil', methods=['POST', 'GET'])
 def mostrar_perfil():
     if usuarioEnSesion is None:

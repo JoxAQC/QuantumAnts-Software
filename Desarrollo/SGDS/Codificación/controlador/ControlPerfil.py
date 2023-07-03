@@ -8,6 +8,40 @@ def conectar_bd():
 
 syst = Sistema("Activo")
 
+def eliminar_usuario(id):
+    conn = sql.connect("modelo/SGDS-VABD01.db")
+    cursor = conn.cursor()
+
+    try:
+        cursor.execute("DELETE FROM Credencial WHERE idCredencial = ?", (id,))
+        conn.commit()
+    except sql.Error as e:
+        print("Error al eliminar datos de la tabla Credencial:", str(e))
+        conn.rollback()
+        conn.close()
+        return False
+
+    try:
+        cursor.execute("DELETE FROM Donante WHERE idDonante = ?", (id,))
+        conn.commit()
+    except sql.Error as e:
+        print("Error al eliminar datos de la tabla Donante:", str(e))
+        conn.rollback()
+        conn.close()
+        return False
+
+    try:
+        cursor.execute("DELETE FROM Cita WHERE idDonante = ?", (id,))
+        conn.commit()
+    except sql.Error as e:
+        print("Error al eliminar datos de la tabla Cita:", str(e))
+        conn.rollback()
+        conn.close()
+        return False
+
+    conn.close()
+    return True
+
 def buscar_usuario(user, password):
     conn = syst.conectar_bd()
     cursor = conn.cursor()
