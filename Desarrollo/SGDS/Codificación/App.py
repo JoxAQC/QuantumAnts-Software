@@ -103,7 +103,7 @@ def mostrar_perfil():
         return render_template("SGDS-IVUI.html")  # Redirige al inicio de sesión si no ha iniciado sesión
     
     # Obtener datos personales del usuario
-    usuario_datos = usuarioDatos1(usuarioEnSesion[0], usuarioEnSesion[1])  # Reemplaza "usuarioDatos" con la función adecuada para obtener los datos personales del usuario
+    usuario_datos = usuarioDatos(usuarioEnSesion[0], usuarioEnSesion[1])  # Reemplaza "usuarioDatos" con la función adecuada para obtener los datos personales del usuario
 
     if usuario_datos is None:
         return "Usuario no encontrado en la base de datos 0"  # Maneja el caso en el que el usuario no se encuentre en la base de datos
