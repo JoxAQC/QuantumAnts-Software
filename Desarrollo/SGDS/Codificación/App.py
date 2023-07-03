@@ -97,60 +97,43 @@ def solicitud():
 #     return render_template("SGDS-IVUI.html", register = register)
 
 
-@app.route('/perfil',methods=['POST', 'GET'])
+@app.route('/perfil', methods=['POST', 'GET'])
 def mostrar_perfil():
-       return render_template("perfil.html")
-
-@app.route('/perfil1',methods=['POST', 'GET'])
-def datosPersonales():
     if usuarioEnSesion is None:
         return render_template("SGDS-IVUI.html")  # Redirige al inicio de sesión si no ha iniciado sesión
+    
+    # Obtener datos personales del usuario
+    usuario_datos = usuarioDatos1(usuarioEnSesion[0], usuarioEnSesion[1])  # Reemplaza "usuarioDatos" con la función adecuada para obtener los datos personales del usuario
 
-    nombre = usuarioEnSesion[1]  # Obtén el nombre del usuario desde la sesión (asegúrate de que el índice sea correcto)
-    usuario = usuarioDatos(nombre)  # Reemplaza "buscar_usuario" con la función adecuada para buscar los datos del usuario en la base de datos
+    if usuario_datos is None:
+        return "Usuario no encontrado en la base de datos 0"  # Maneja el caso en el que el usuario no se encuentre en la base de datos
 
-    if usuario is None:
-        return "Usuario no encontrado en la base de datos"  # Maneja el caso en el que el usuario no se encuentre en la base de datos
+    # Obtén los datos personales del usuario
+    nombre = usuario_datos [0]
+    dni = usuario_datos[1]
+    telefono = usuario_datos[2]
+    direccion = usuario_datos[3]
+    fechaNacimiento = usuario_datos[4]
 
-    # Obtén los datos del usuario de la variable "usuario"
-    dni = usuario[0]
-    telefono = usuario[1]
-    direccion = usuario[2]
-    fechaNacimiento = usuario[3]
+    # Obtener datos de donaciones del usuario
+    usuario_donaciones = usuarioDonaciones(nombre)  # Reemplaza "usuarioDonaciones" con la función adecuada para obtener los datos de donaciones del usuario
 
-    return render_template("perfil.html", nombre=nombre, dni=dni, telefono=telefono, direccion=direccion, fechaNacimiento=fechaNacimiento)     
+    if usuario_donaciones is None:
+        return "Usuario no encontrado en la base de datos 1"  # Maneja el caso en el que el usuario no se encuentre en la base de datos
 
-@app.route('/perfil2', methods=['POST', 'GET'])
-def datosDonaciones():
-    if usuarioEnSesion is None:
-            return render_template("SGDS-IVUI.html")  # Redirige al inicio de sesión si no ha iniciado sesión
+    # Obtén los datos de donaciones del usuario
+    donacion = usuario_donaciones[0]
 
-    nombre = usuarioEnSesion[1]  # Obtén el nombre del usuario desde la sesión (asegúrate de que el índice sea correcto)
-    usuario = usuarioDonaciones(nombre)  # Reemplaza "buscar_usuario" con la función adecuada para buscar los datos del usuario en la base de datos
+    # Obtener datos de beneficios del usuario
+    usuario_beneficios = usuarioBeneficios(nombre)  # Reemplaza "usuarioBeneficios" con la función adecuada para obtener los datos de beneficios del usuario
 
-    if usuario is None:
-        return "Usuario no encontrado en la base de datos"  # Maneja el caso en el que el usuario no se encuentre en la base de datos
+    if usuario_beneficios is None:
+        return "Usuario no encontrado en la base de datos 2"  # Maneja el caso en el que el usuario no se encuentre en la base de datos
 
-    # Obtén los datos del usuario de la variable "usuario"
-    donacion = usuario[0]
+    # Obtén los datos de beneficios del usuario
+    beneficio = usuario_beneficios[0]
 
-    return render_template("perfil.html", nombre=nombre, donacion = donacion)
-
-@app.route('/perfil3', methods=['POST', 'GET'])
-def datosBeneficios():
-    if usuarioEnSesion is None:
-            return render_template("SGDS-IVUI.html")  # Redirige al inicio de sesión si no ha iniciado sesión
-
-    nombre = usuarioEnSesion[1]  # Obtén el nombre del usuario desde la sesión (asegúrate de que el índice sea correcto)
-    usuario = usuarioBeneficios(nombre)  # Reemplaza "buscar_usuario" con la función adecuada para buscar los datos del usuario en la base de datos
-
-    if usuario is None:
-        return "Usuario no encontrado en la base de datos"  # Maneja el caso en el que el usuario no se encuentre en la base de datos
-
-    # Obtén los datos del usuario de la variable "usuario"
-    beneficio = usuario[0]
-
-    return render_template("perfil.html", nombre=nombre, benficio = beneficio)
+    return render_template("perfil.html", nombre=nombre, dni=dni, telefono=telefono, direccion=direccion, fechaNacimiento=fechaNacimiento, donacion=donacion, beneficio=beneficio)
 
 
 if __name__ == "__main__":
