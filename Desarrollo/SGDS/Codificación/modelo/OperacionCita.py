@@ -1,6 +1,6 @@
 import os
 import sqlite3 as sql
-from modelo.Donante import Donante
+from Donante import Donante
 
 class OperacionCita:
     def __init__(self):
@@ -93,7 +93,7 @@ class OperacionCita:
         cursor = conn.cursor()
         instruction = "DELETE FROM Cita where idDonante= ?"
         cursor.execute(instruction, (
-            donante.get_id_donante()
+            donante.get_id_donante(),
         ))
         conn.commit()
         conn.close()

@@ -1,6 +1,6 @@
 import sqlite3 as sql
 import os
-from modelo.Sistema import Sistema
+from Sistema import Sistema
 
 
 
@@ -88,7 +88,7 @@ class OperacionDonante:
         cursor = conn.cursor()
         instruction = "DELETE FROM Donante where idDonante= ?"
         cursor.execute(instruction, (
-            donante.get_id_donante()
+            donante.get_id_donante(),
         ))
         conn.commit()
         conn.close()
