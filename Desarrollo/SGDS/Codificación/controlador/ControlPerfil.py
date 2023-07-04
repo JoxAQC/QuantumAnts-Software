@@ -11,10 +11,10 @@ def conectar_bd():
 
 syst = Sistema("Activo")
 
-def eliminar_usuario(donante,credencial):
-   OperacionCita.eliminar_citas(donante)
-   OperacionCredencial.eliminar_credencial(credencial)
-   OperacionDonante.eliminar_donante(donante)
+def eliminar_usuario(id):
+   OperacionCita.eliminar_citas(id)
+   OperacionCredencial.eliminar_credencial(id)
+   OperacionDonante.eliminar_donante(id)
 
 def buscar_usuario(user, password):
     conn = syst.conectar_bd()
@@ -191,3 +191,6 @@ def registrar_cita(cita):
         print("Error al registrar la cita:", str(e))
     finally:
         conn.close()
+
+
+eliminar_usuario(1235)

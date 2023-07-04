@@ -190,3 +190,6 @@ def limpiarTable(tabla):
     )
     conn.commit()
     conn.close()
+
+
+
