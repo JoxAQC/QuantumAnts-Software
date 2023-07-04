@@ -123,7 +123,7 @@ def registrarSolicitud():
 
 @app.route('/eliminar')
 def eliminar_perfil():
-    if eliminar_usuario():
+    if eliminar_usuario(usuarioEnSesion[0]):
         return render_template("index.html")
     else:
         print("Error al eliminar perfil")
