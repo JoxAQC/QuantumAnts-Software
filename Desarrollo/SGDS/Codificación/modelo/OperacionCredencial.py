@@ -49,7 +49,7 @@ class OperacionCredencial:
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "DELETE FROM Credencial where idCredencial= ?"
-        cursor.execute(instruction, (id))
+        cursor.execute(instruction, (id,))
         conn.commit()
         conn.close()
 

@@ -1,6 +1,5 @@
 import os
 import sqlite3 as sql
-from Donante import Donante
 
 class OperacionCita:
     def __init__(self):
@@ -92,7 +91,7 @@ class OperacionCita:
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "DELETE FROM Cita where idDonante= ?"
-        cursor.execute(instruction, (id))
+        cursor.execute(instruction, (id,))
         conn.commit()
         conn.close()
 

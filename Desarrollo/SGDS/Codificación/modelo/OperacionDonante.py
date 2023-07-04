@@ -1,6 +1,6 @@
 import sqlite3 as sql
 import os
-from Sistema import Sistema
+from modelo.Sistema import Sistema
 
 
 
@@ -87,7 +87,7 @@ class OperacionDonante:
         conn = sql.connect("modelo/SGDS-VABD01.db")
         cursor = conn.cursor()
         instruction = "DELETE FROM Donante where idDonante= ?"
-        cursor.execute(instruction, (id))
+        cursor.execute(instruction, (id,))
         conn.commit()
         conn.close()
 

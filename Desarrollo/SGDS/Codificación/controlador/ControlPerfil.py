@@ -191,3 +191,6 @@ def registrar_cita(cita):
         print("Error al registrar la cita:", str(e))
     finally:
         conn.close()
+
+
+eliminar_usuario(1235)
