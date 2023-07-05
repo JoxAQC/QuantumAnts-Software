@@ -60,7 +60,7 @@ def registrar():
     fecha_exp = datetime.date(fecha_actual.year + 1, fecha_actual.month, fecha_actual.day)
     fecha_actual = fecha_actual.strftime("%d-%m-%y")
     fecha_exp = fecha_exp.strftime("%d-%m-%y")
-    new_Credencial = Credencial(1238, fecha_actual, fecha_exp, 1, "Donante", user, password)
+    new_Credencial = Credencial(1239, fecha_actual, fecha_exp, 1, "Donante", user, password)
     # atributos = vars(new_Credencial)
     # for valor in atributos.values():
     #     print(valor)
@@ -78,7 +78,7 @@ def registrarDatos():
     fecha_nacimiento = output["fecha-nacimiento"]
     grupo = output["grupo"]
     rh = output["rh"]
-    newDonante = Donante(1238, nombre, fecha_nacimiento, dni, telefono, direccion, 1, grupo, rh, 1, 1)
+    newDonante = Donante(1239, nombre, fecha_nacimiento, dni, telefono, direccion, 1, grupo, rh, 1, 1)
     # atributos = vars(newDonante)
     # for valor in atributos.values():
     #     print(valor)
