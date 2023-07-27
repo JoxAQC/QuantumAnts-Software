@@ -12,9 +12,9 @@ def conectar_bd():
 syst = Sistema("Activo")
 
 def eliminar_usuario(id):
-   OperacionCita.eliminar_citas(id)
-   OperacionCredencial.eliminar_credencial(id)
-   OperacionDonante.eliminar_donante(id)
+    OperacionCita.eliminar_citas(id)
+    OperacionCredencial.eliminar_credencial(id)
+    OperacionDonante.eliminar_donante(id)
 
 def buscar_usuario(user, password):
     conn = syst.conectar_bd()
@@ -182,7 +182,7 @@ def registrar_cita(cita):
     try:
         cursor.execute(
             "INSERT INTO Cita (idCita, fecha, idDonante, idHospital, estado) VALUES (?, ?, ?, ?, ?)",
-            (cita.idCita, cita.fecha, cita.idDonante, cita.idHospital, cita.estado),
+            (cita.get_idCita(), cita.get_fecha(), cita.get_donante(), cita.get_hospital(), cita.get_estado()),
         )
 
         conn.commit()

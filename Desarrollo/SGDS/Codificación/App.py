@@ -108,13 +108,13 @@ def sedes():
 def solicitud():
     return render_template("solicitud.html")
 
-@app.route('/registrarSolicitud')
+@app.route('/registrarSolicitud', methods=['POST', 'GET'])
 def registrarSolicitud():
     output = request.form.to_dict()
     dni = output["dni"]
     hospital = output["hospital"]
-    idDonante = buscar_donante(dni)
-    idHospital = buscar_hospital(hospital)
+    idDonante = usuarioEnSesion[0]
+    idHospital = "1234"
     fecha_actual = datetime.date.today()
     fecha_actual = fecha_actual.strftime("%d-%m-%y")
     newCita = Cita(1579, fecha_actual, idDonante, idHospital, 1)
@@ -123,10 +123,8 @@ def registrarSolicitud():
 
 @app.route('/eliminar')
 def eliminar_perfil():
-    if eliminar_usuario(usuarioEnSesion[0]):
-        return render_template("index.html")
-    else:
-        print("Error al eliminar perfil")
+    eliminar_usuario(usuarioEnSesion[0])
+    return render_template("index.html")
 
 @app.route('/perfil', methods=['POST', 'GET'])
 def mostrar_perfil():
